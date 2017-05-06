@@ -19,12 +19,13 @@
 .rejected{
     color: rgb(255,0,0);
 }
+/* Filters */
 .filter{
     margin: 24px;
 }
 .search{
     display: block;
-    width: 100%;
+    width: 75%;
     padding: 16px 24px 0 24px;
     box-sizing: border-box;
 }

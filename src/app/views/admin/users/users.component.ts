@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class usersView implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    filters: any[] = [
+        {
+            value: 'All'
+        },
+        {
+            value: 'Specific filter'
+        }
+    ]
 }
