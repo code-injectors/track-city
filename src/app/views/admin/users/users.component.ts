@@ -20,4 +20,22 @@ export class usersView implements OnInit {
             value: 'Specific filter'
         }
     ]
+
+    users: any[] = [
+        {
+            firstName: 'test1',
+            lastName: 'description1 sal;kjflk;aglkjhklhj',
+            email: 8577865,
+        },
+        {
+            firstName: 'test1',
+            lastName: 'description1 sal;kjflk;aglkjhklhj',
+            email: 8577865,
+        },
+        {
+            firstName: 'test1',
+            lastName: 'description1 sal;kjflk;aglkjhklhj',
+            email: 8577865,
+        }
+    ]
 }

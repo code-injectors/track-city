@@ -68,36 +68,36 @@ export class reportsView implements OnInit {
     ]
 
     reports: any[] = [
-      {
-          title: 'test1',
-          description: 'description1 sal;kjflk;aglkjhklhj',
-          longitude: 8577865,
-          latitude: 85758765,
-          category: 'dummy',
-          creator: 'tzinos',
-          thumb_up: 120,
-          thumb_down: 22,
-      },
-      {
-          title: 'test2',
-          description: 'description1 sal;kjflk;aglkjhklhj',
-          longitude: 8577865,
-          latitude: 85758765,
-          category: 'dummy',
-          creator: 'tzinos',
-          thumb_up: 79,
-          thumb_down: 8,
-      },
-      {
-          title: 'test3',
-          description: 'description1 sal;kjflk;aglkjhklhj',
-          longitude: 8577865,
-          latitude: 85758765,
-          category: 'dummy',
-          creator: 'tzinos',
-          thumb_up: 8,
-          thumb_down: 4,
-      },
+        {
+            title: 'test1',
+            description: 'description1 sal;kjflk;aglkjhklhj',
+            longitude: 8577865,
+            latitude: 85758765,
+            category: 'dummy',
+            creator: 'tzinos',
+            thumb_up: 120,
+            thumb_down: 22,
+        },
+        {
+            title: 'test2',
+            description: 'description1 sal;kjflk;aglkjhklhj',
+            longitude: 8577865,
+            latitude: 85758765,
+            category: 'dummy',
+            creator: 'tzinos',
+            thumb_up: 79,
+            thumb_down: 8,
+        },
+        {
+            title: 'test3',
+            description: 'description1 sal;kjflk;aglkjhklhj',
+            longitude: 8577865,
+            latitude: 85758765,
+            category: 'dummy',
+            creator: 'tzinos',
+            thumb_up: 8,
+            thumb_down: 4,
+        },
     ]
 
     filters: any[] = [

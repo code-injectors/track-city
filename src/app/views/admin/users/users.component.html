@@ -9,3 +9,14 @@
         <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
     </md-select>
 </div>
+
+<md-list>
+    <md-list-item *ngFor="let user of users">
+        <img md-list-avatar src="" alt="avatar">
+        <h3 md-line>{{ user.firstName }} {{ user.lastName }}</h3>
+        <p md-line>
+            <span class="category">{{ user.email }}</span>
+        </p>
+        <a md-raised-button >Edit</a>
+    </md-list-item>
+</md-list>
