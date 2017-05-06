@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { newDialog } from './../../../dialogs/new/new.component';
+import { SDK } from './../../../app.sdk';
+import { reportFilter } from './../../../models/reportFilter';
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']
 })
 export class reportsView implements OnInit {
+    query: reportFilter;
     dialogRef: MdDialogRef<newDialog>;
     lat:Number = 41.08247;
     lng:Number = 23.5437952;
     zoom:Number = 16;
+
+    reports = [];
 
     config: MdDialogConfig = {
         disableClose: false,
@@ -19,9 +24,15 @@ export class reportsView implements OnInit {
         }
     };
 
-    constructor(public dialog: MdDialog) { }
+    constructor(public sdk:SDK,public dialog: MdDialog) { }
 
     ngOnInit() {
+        this.query = new reportFilter(
+            {title: 'title', value: ''},
+            {title: 'status', value: ''},
+            {title: 'category', value: ''},
+            {title: 'sort', value: ''});
+        this.filter();
     }
 
     clickedMarker(label: string, index: number) {
@@ -67,39 +78,6 @@ export class reportsView implements OnInit {
       }
     ]
 
-    reports: any[] = [
-        {
-            title: 'test1',
-            description: 'description1 sal;kjflk;aglkjhklhj',
-            longitude: 8577865,
-            latitude: 85758765,
-            category: 'dummy',
-            creator: 'tzinos',
-            thumb_up: 120,
-            thumb_down: 22,
-        },
-        {
-            title: 'test2',
-            description: 'description1 sal;kjflk;aglkjhklhj',
-            longitude: 8577865,
-            latitude: 85758765,
-            category: 'dummy',
-            creator: 'tzinos',
-            thumb_up: 79,
-            thumb_down: 8,
-        },
-        {
-            title: 'test3',
-            description: 'description1 sal;kjflk;aglkjhklhj',
-            longitude: 8577865,
-            latitude: 85758765,
-            category: 'dummy',
-            creator: 'tzinos',
-            thumb_up: 8,
-            thumb_down: 4,
-        },
-    ]
-
     filters: any[] = [
         {
             value: 'All'
@@ -108,6 +86,16 @@ export class reportsView implements OnInit {
             value: 'Specific filter'
         }
     ]
+
+    filter(){
+        
+        console.log(this.query);
+        this.sdk.getReports(this.query).subscribe(result => {
+            console.log(result);
+            this.reports = result.content;
+        });
+        //this.router.navigate(['/admin']);
+    }
 }
 
 interface marker {

@@ -66,6 +66,15 @@ export class SDK{
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
 
+    getReports(body?: any) : Observable<any> {
+         let bodyString = this.toUrl(body);
+         console.log(bodyString);
+
+         return this.http.get(this.sdkUrl+'reports'+bodyString, this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
     newUser(body?: Object) : Observable<any> {
          let bodyString = '';
          if(body){
