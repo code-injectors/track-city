@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { editDialog } from './../../../dialogs/edit/edit.component';
 
 @Component({
   selector: 'app-users',
@@ -6,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class usersView implements OnInit {
+    dialogRef: MdDialogRef<editDialog>;
+
+    config: MdDialogConfig = {
+        disableClose: false,
+        data: {
+          message: 'Jazzy jazz jazz'
+        }
+    };
 
     constructor() { }
 

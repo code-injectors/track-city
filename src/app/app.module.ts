@@ -14,6 +14,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 
 import { newDialog } from './dialogs/new/new.component';
+import { editDialog } from './dialogs/new/new.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
         adminView,
         reportsView,
         usersView,
-        newDialog
+        newDialog, editDialog
     ],
     imports: [
         BrowserModule,
@@ -59,7 +60,7 @@ const appRoutes: Routes = [
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     entryComponents: [
-        newDialog
+        newDialog, editDialog
     ]
 })
 export class AppModule { }
