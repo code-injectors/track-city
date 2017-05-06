@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { newDialog } from './../../../dialogs/new/new.component';
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']
 })
 export class reportsView implements OnInit {
+    dialogRef: MdDialogRef<any>;
 
     lat:Number = 41.08247;
     lng:Number = 23.5437952;
     zoom:Number = 16;
 
-    constructor() { }
+    constructor(public dialog: MdDialog) { }
 
     ngOnInit() {
     }
@@ -29,6 +31,13 @@ export class reportsView implements OnInit {
     
     markerDragEnd(m: marker, $event: MouseEvent) {
       console.log('dragEnd', m, $event);
+    }
+
+    openDialog() {
+      this.dialog.open(newDialog);
+      this.dialogRef.afterClosed().subscribe(result => {
+        this.dialogRef = null;
+      });
     }
     
     markers: marker[] = [

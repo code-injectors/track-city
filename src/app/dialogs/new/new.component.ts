@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.css']
 })
-export class newView implements OnInit {
+export class newDialog{
 
   constructor() { }
 

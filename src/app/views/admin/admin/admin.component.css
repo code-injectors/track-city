@@ -1,6 +1,17 @@
+.toolbar{ 
+    position: absolute;
+    z-index: 100;
+}
+.navcontainer{
+    height: 100vh;
+}
 .view{
     height: 100vh;
     width: 100%;
+    padding-top: 64px;
+}
+.sidenav{
+    padding-top: 64px;
 }
 .toggle{
     cursor: pointer;

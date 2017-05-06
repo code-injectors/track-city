@@ -1,10 +1,10 @@
-<md-toolbar>
+<md-toolbar class="toolbar">
     <i class="toggle material-icons" (click)="sidenav.toggle()">menu</i>
     <span>Title</span>
 </md-toolbar>
 
-<md-sidenav-container>
-    <md-sidenav #sidenav mode="side" align="start" opened="true">
+<md-sidenav-container class="navcontainer">
+    <md-sidenav class="sidenav" #sidenav mode="side" align="start" opened="true">
         <md-nav-list>
             <md-list-item (click)="navigate(link.url)" *ngFor="let link of links">
                 <md-icon>{{ link.icon }}</md-icon>

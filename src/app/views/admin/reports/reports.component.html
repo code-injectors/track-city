@@ -36,7 +36,6 @@
                 <a md-raised-button >Accept</a>
             </md-list-item>
         </md-list>
-      
     </md-tab>
     <md-tab label="Map" class="map">
         <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
@@ -44,3 +43,5 @@
         </sebm-google-map>
     </md-tab>
 </md-tab-group>
+
+<button class="fab" md-fab (click)="openDialog()"><md-icon>add</md-icon></button>
