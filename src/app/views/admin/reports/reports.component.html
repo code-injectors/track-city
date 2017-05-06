@@ -1,5 +1,8 @@
 
 <div class="filters">
+   <md-input-container [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
+        <input mdInput [(ngModel)]="componentProperty" type="text" placeholder="Search..">
+    </md-input-container>
     <md-select class="filter" placeholder="Show">
         <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
     </md-select>
