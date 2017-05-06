@@ -5,7 +5,15 @@
     <md-tab label="List">
       
     </md-tab>
-    <md-tab label="Map">
-        <google-maps lat="51.507351" lng="-0.127758" apikey="YOUR-API-KEY-HERE"</google-maps>
+    <md-tab label="Map" class="map">
+        <sebm-google-map 
+            latitude="googleMaps.lat"
+            longitude="googleMaps.lng"
+            zoom="googleMaps.zoom"
+            disableDefaultUI="false"
+            zoomControl="false"
+            (mapClick)="mapClicked($event)">
+        
+        </sebm-google-map>
     </md-tab>
 </md-tab-group>
