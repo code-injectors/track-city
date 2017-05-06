@@ -19,6 +19,9 @@
 .rejected{
     color: rgb(255,0,0);
 }
+.list{
+    height: calc(100% - (200px)); 
+}
 /* Filters */
 .filter{
     margin: 24px;
@@ -33,4 +36,5 @@
     position: absolute;
     bottom: 40px;
     right: 24px;
+    z-index: 1000;
 }

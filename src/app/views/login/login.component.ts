@@ -14,9 +14,11 @@ export class loginView implements OnInit {
     ngOnInit() {
     }
 
-    login(){
-        
-        this.sdk.getUsers().subscribe(result => {
+    login(email,password){
+
+        this.sdk.hideLoading = false;
+        this.sdk.login(email,password).subscribe(result => {
+            this.sdk.hideLoading =  true;
             console.log(result);
         });
         //this.router.navigate(['/admin']);

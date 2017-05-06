@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SDK } from './../../../app.sdk';
 
 @Component({
   selector: 'app-admin',
@@ -21,7 +22,7 @@ export class adminView implements OnInit {
         }
     ]
 
-    constructor(public router:Router) { }
+    constructor(public sdk:SDK,public router:Router) { }
 
     ngOnInit() {
     }
@@ -32,6 +33,7 @@ export class adminView implements OnInit {
     }
 
     logout(){
+        this.sdk.logout();
         this.router.navigate(['/login']);
     }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { TokenService } from 'angular2-auth';
 import { Observable } from 'rxjs/Rx';
 
 //import { User } from './models/user';
@@ -14,10 +15,11 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 export class SDK{
     public hideLoading:boolean= true;
     private sdkUrl = 'http://46.101.247.89:8080/';
+    private loginUrl = 'http://10.42.0.94:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
 
-    constructor (private http: Http,public snackBar: MdSnackBar) {}
+    constructor (private http: Http,public snackBar: MdSnackBar,private _tokenService: TokenService) {}
 
     showSnackBar(message,action,addClass?){
         console.log(message);
@@ -28,6 +30,7 @@ export class SDK{
     }
 
     showError(error:any){
+        //this.sdk.hideLoading = false;
         this.showSnackBar(error.json().error,false);
         return Observable.throw(error.json().error || 'Server error');
     }
@@ -58,6 +61,32 @@ export class SDK{
         return url;
     }
 
+    /* Login */
+
+    login(email: string, password: string) : Observable<any> {
+        return this.http.post(this.loginUrl+'auth', { username: email, password: password })
+                    .map((res:any) => {
+                        this._tokenService.setToken(res.token);
+                        return res.json()
+                    }) // ...and calling .json() on the response to return data
+                    .catch((error:any) => this.showError(error)); //...errors if any
+    }
+  
+    logout() {
+        this._tokenService.removeToken();
+    }
+  
+    loggedIn() {
+        let token = this._tokenService.getToken();
+        
+        if(token && token.token) {
+            return !token.isExpired();
+        }
+        return false;
+    }
+
+    /* SDK */
+
     getUsers(body?: any) : Observable<any> {
          let bodyString = this.toUrl(body);
          console.log(bodyString);
@@ -87,5 +116,7 @@ export class SDK{
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
+
+
 
 }
