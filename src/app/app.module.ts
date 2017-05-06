@@ -16,6 +16,8 @@ import { AppComponent } from './app.component';
 import { newDialog } from './dialogs/new/new.component';
 import { editDialog } from './dialogs/edit/edit.component';
 
+import { SDK } from './app.sdk';
+
 import { RouterModule, Routes } from '@angular/router';
 
 import { loginView } from './views/login/login.component';
@@ -56,7 +58,9 @@ const appRoutes: Routes = [
             apiKey: 'AIzaSyBQcqNcYHtG1ukvDGWPpVoht7SfFSAqWRc'
         })
     ],
-    providers: [],
+    providers: [
+        SDK
+    ],
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     entryComponents: [

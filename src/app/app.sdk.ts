@@ -8,22 +8,51 @@ import { User } from './models/user';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
+
 @Injectable()
 export class SDK{
+    private sdkUrl = 'http://46.101.247.89:8080/';
+    private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    private options = new RequestOptions({ headers: this.headers }); // Create a request option
 
-     constructor (private http: Http) {}
+    constructor (private http: Http,public snackBar: MdSnackBar) {}
 
-     private sdkUrl = 'http://46.101.247.89:9000/'; 
+    showSnackBar(message,action,addClass?){
+        console.log(message);
+        let config = new MdSnackBarConfig();
+        config.duration = 10000;
+        config.extraClasses = addClass ? addClass : null;
+        this.snackBar.open(message, action, config);
+    }
 
-     getUsers(body?: Object) : Observable<User[]> {
-         let bodyString = JSON.stringify(body); // Stringify payload
-         let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-         let options = new RequestOptions({ headers: headers }); // Create a request option
+    showError(error:any){
+        this.showSnackBar(error.json().error,false);
+        return Observable.throw(error.json().error || 'Server error');
+    }
 
+    getUsers(body?: Object) : Observable<User[]> {
+         let bodyString = '';
+         if(body){
+             bodyString = JSON.stringify(body);
+         }
+         //console.log(bodyString);
 
-         return this.http.post(this.sdkUrl, bodyString, options) // ...using post request
+         return this.http.get(this.sdkUrl+'users'+bodyString, this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
-     }
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
+    newUser(body?: Object) : Observable<User[]> {
+         let bodyString = '';
+         if(body){
+             bodyString = JSON.stringify(body);
+         }
+         //console.log(bodyString);
+
+         return this.http.post(this.sdkUrl+'users', bodyString, this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
 
 }
