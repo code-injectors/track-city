@@ -6,14 +6,8 @@
       
     </md-tab>
     <md-tab label="Map" class="map">
-        <sebm-google-map 
-            [latitude]="lat"
-            [longitude]="lng"
-            [zoom]="zoom"
-            [disableDefaultUI]="false"
-            [zoomControl]="false"
-            (mapClick)="mapClicked($event)">
-        
+        <sebm-google-map [latitude]="lat" [longitude]="lng">
+            <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
         </sebm-google-map>
     </md-tab>
 </md-tab-group>

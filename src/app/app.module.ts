@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { MaterialModule } from '@angular/material'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

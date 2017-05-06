@@ -8,8 +8,8 @@ import { AgmCoreModule } from '@agm/core';
 export class reportsView implements OnInit {
 
   lat:Number = 51.507351;
-  lng:Number =  -0.127758;
-  zoom:Number =  9;
+  lng:Number = -0.127758;
+  zoom:Number = 9;
 
   constructor() { }
 
