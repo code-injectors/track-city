@@ -6,12 +6,10 @@ import { AgmCoreModule } from '@agm/core';
   styleUrls: ['./reports.component.css']
 })
 export class reportsView implements OnInit {
-  googleMaps = {
-      lat: 51.507351,
-      lng: -0.127758,
-      zoom: 9,
-      api: "AIzaSyBQcqNcYHtG1ukvDGWPpVoht7SfFSAqWRc"
-  }
+
+  lat:Number = 51.507351;
+  lng:Number =  -0.127758;
+  zoom:Number =  9;
 
   constructor() { }
 

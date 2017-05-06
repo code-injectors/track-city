@@ -7,11 +7,11 @@
     </md-tab>
     <md-tab label="Map" class="map">
         <sebm-google-map 
-            latitude="googleMaps.lat"
-            longitude="googleMaps.lng"
-            zoom="googleMaps.zoom"
-            disableDefaultUI="false"
-            zoomControl="false"
+            [latitude]="lat"
+            [longitude]="lng"
+            [zoom]="zoom"
+            [disableDefaultUI]="false"
+            [zoomControl]="false"
             (mapClick)="mapClicked($event)">
         
         </sebm-google-map>

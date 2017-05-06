@@ -51,7 +51,9 @@ const appRoutes: Routes = [
         MaterialModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
-        AgmCoreModule.forRoot()
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBQcqNcYHtG1ukvDGWPpVoht7SfFSAqWRc'
+        })
     ],
     providers: [],
     bootstrap: [AppComponent],
