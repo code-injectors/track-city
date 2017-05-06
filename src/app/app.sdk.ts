@@ -12,7 +12,7 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 
 @Injectable()
 export class SDK{
-    public hideLoading:true;
+    public hideLoading:boolean= true;
     private sdkUrl = 'http://46.101.247.89:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option

@@ -90,7 +90,9 @@ export class reportsView implements OnInit {
     filter(){
         
         console.log(this.query);
+        this.sdk.hideLoading =  false;
         this.sdk.getReports(this.query).subscribe(result => {
+            this.sdk.hideLoading =  true;
             console.log(result);
             this.reports = result.content;
         });

@@ -63,7 +63,9 @@ export class usersView implements OnInit {
     filter(){
         
         console.log(this.query);
+        this.sdk.hideLoading = false;
         this.sdk.getUsers(this.query).subscribe(result => {
+            this.sdk.hideLoading =  true;
             console.log(result);
             this.users = result;
         });

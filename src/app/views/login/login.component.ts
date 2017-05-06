@@ -15,6 +15,7 @@ export class loginView implements OnInit {
     }
 
     login(){
+        
         this.sdk.getUsers().subscribe(result => {
             console.log(result);
         });
