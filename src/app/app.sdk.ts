@@ -30,7 +30,8 @@ export class SDK{
     }
 
     showError(error:any){
-        //this.sdk.hideLoading = false;
+        this.hideLoading = true;
+        console.log(error);
         this.showSnackBar(error.json().error,false);
         return Observable.throw(error.json().error || 'Server error');
     }
