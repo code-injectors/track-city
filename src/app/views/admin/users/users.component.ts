@@ -18,7 +18,7 @@ export class usersView implements OnInit {
     config: MdDialogConfig = {
         disableClose: false,
         data: {
-          message: 'Jazzy jazz jazz'
+            message: 'Jazzy jazz jazz'
         }
     };
 

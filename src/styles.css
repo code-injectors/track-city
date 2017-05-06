@@ -6,6 +6,10 @@ body{
     margin: 0px;
 }
 
+.mat-dialog-container{
+    width: 300px!important;
+}
+
 
 /* Progress Bar */
 

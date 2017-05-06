@@ -7,10 +7,11 @@ import { User } from './../../models/user';
   styleUrls: ['./user.component.css']
 })
 export class userDialog{
-  user:User;
-  constructor() {}
+    user:User;
+    constructor() {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        //this.user = new User(
+    }
 
 }

@@ -12,8 +12,8 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 @Injectable()
 export class SDK{
     public hideLoading:boolean= true;
-    private sdkUrl = 'http://46.101.247.89:8080/';
-    //private sdkUrl = 'http://10.42.0.94:8080/';
+    //private sdkUrl = 'http://46.101.247.89:8080/';
+    private sdkUrl = 'http://10.42.0.94:8080/';
     private loginUrl = 'http://10.42.0.94:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
@@ -64,11 +64,14 @@ export class SDK{
     /* Login */
 
     login(email: string, password: string) : Observable<any> {
+        let $this = this;
         return this.http.post(this.loginUrl+'auth', { username: email, password: password })
-                    .map((res:any) => {
-                        console.log(this.headers);
-                        this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : res.token});
-                        localStorage.setItem('currentUser',res.token);
+                    .map((res:any) => {                        
+                        console.log(res.json().token);
+                        $this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : res.json().token});
+                        $this.options = new RequestOptions({ headers: $this.headers });
+                        console.log($this.options);
+                        localStorage.setItem('currentUser',res.json().token);
                         return res.json()
                     }) // ...and calling .json() on the response to return data
                     .catch((error:any) => this.showError(error)); //...errors if any
@@ -97,6 +100,8 @@ export class SDK{
     getReports(body?: any) : Observable<any> {
          let bodyString = this.toUrl(body);
          console.log(bodyString);
+
+         console.log(this.headers);
 
          return this.http.get(this.sdkUrl+'reports'+bodyString, this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
