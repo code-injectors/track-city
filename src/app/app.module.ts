@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from '@angular/material'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import 'hammerjs'
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     { path: 'login', component: loginView },
     { path: 'admin', component: adminView, 
       children: [
-        { path: '', redirectTo: 'reports', pathMatch: 'full', outlet:'admin' },
+        { path: '', component: reportsView, outlet:'admin' },
         { path: 'reports', component: reportsView, outlet:'admin' },
         { path: 'new', component: newView, outlet:'admin' },
         { path: 'users', component: usersView, outlet:'admin' }
