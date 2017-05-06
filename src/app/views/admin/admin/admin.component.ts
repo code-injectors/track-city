@@ -14,12 +14,12 @@ export class adminView implements OnInit {
             icon: ''
         },
         {
-            title: 'new',
+            title: 'New report',
             url: 'new',
             icon: ''
         },
         {
-            title: 'users',
+            title: 'Users',
             url: 'users',
             icon: ''
         }
@@ -28,6 +28,10 @@ export class adminView implements OnInit {
     constructor() { }
 
     ngOnInit() {
+    }
+
+    navigate(url){
+        this.navigate(['admin/,(view:url)']);
     }
 
 }

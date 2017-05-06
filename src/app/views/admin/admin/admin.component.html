@@ -1,5 +1,5 @@
 <md-toolbar>
-    <i class="material-icons" (click)="sidenav.toggle()">menu</i>
+    <i class="toggle material-icons" (click)="sidenav.toggle()">menu</i>
     <span>Title</span>
 </md-toolbar>
 
@@ -7,7 +7,7 @@
     <md-sidenav #sidenav mode="side" align="start" opened="true">
         <md-nav-list>
             <md-list-item *ngFor="let link of links">
-                <button md-icon-button (click)="showInfo(link.url)">
+                <button md-icon-button (click)="navigate(link.url)">
                     <md-icon>{{ link.icon }}</md-icon>
                     {{ link.title }}
                 </button>

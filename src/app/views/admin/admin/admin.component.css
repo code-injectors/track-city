@@ -1,0 +1,10 @@
+.view{
+    height: 100vh;
+    width: 100%;
+}
+.toggle{
+    cursor: pointer;
+}
+.mat-sidenav{
+    min-width: 160px;
+}
