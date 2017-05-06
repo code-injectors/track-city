@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { AgmCoreModule } from '@agm/core';
+
 import { MaterialModule } from '@angular/material'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
         MaterialModule,
         BrowserAnimationsModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        AgmCoreModule
     ],
     providers: [],
     bootstrap: [AppComponent]
