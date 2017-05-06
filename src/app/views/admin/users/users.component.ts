@@ -1,6 +1,6 @@
 import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
-import { editDialog } from './../../../dialogs/edit/edit.component';
+import { userDialog } from './../../../dialogs/user/user.component';
 import { SDK } from './../../../app.sdk';
 import { userFilter } from './../../../models/userFilter';
 
@@ -11,7 +11,7 @@ import { userFilter } from './../../../models/userFilter';
 })
 export class usersView implements OnInit {
     query: userFilter;
-    dialogRef: MdDialogRef<editDialog>;
+    dialogRef: MdDialogRef<userDialog>;
 
     users = [];
 

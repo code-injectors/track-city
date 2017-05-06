@@ -15,8 +15,8 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 
-import { newDialog } from './dialogs/new/new.component';
-import { editDialog } from './dialogs/edit/edit.component';
+import { reportDialog } from './dialogs/report/report.component';
+import { userDialog } from './dialogs/user/user.component';
 
 import { SDK } from './app.sdk';
 
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
         adminView,
         reportsView,
         usersView,
-        newDialog, editDialog
+        reportDialog, userDialog
     ],
     imports: [
         BrowserModule,
@@ -69,7 +69,7 @@ const appRoutes: Routes = [
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     entryComponents: [
-        newDialog, editDialog
+        userDialog, reportDialog
     ]
 })
 export class AppModule { }
