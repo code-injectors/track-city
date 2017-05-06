@@ -1,10 +1,18 @@
 <md-toolbar>
+    <i class="material-icons" (click)="toggleMenu()">menu</i>
     <span>Title</span>
 </md-toolbar>
 
 <md-sidenav-container>
-    <md-sidenav mode="side" align="start" opened>
-        Sidenav content
+    <md-sidenav #sidenav mode="side" align="start" opened="{{ showMenu }}">
+        <md-nav-list>
+            <md-list-item *ngFor="let link of links">
+                <a md-line href="...">{{ link }}</a>
+                <button md-icon-button (click)="showInfo(link)">
+                    <md-icon>info</md-icon>
+                </button>
+            </md-list-item>
+        </md-nav-list>
     </md-sidenav>
     <!-- Body -->
     <div class="view">
