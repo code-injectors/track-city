@@ -36,4 +36,8 @@ export class adminView implements OnInit {
         this.router.navigate(['/admin', {outlets:{'admin': url}}]);
     }
 
+    logout(){
+        this.router.navigate(['/login']);
+    }
+
 }
