@@ -32,8 +32,8 @@ export class SDK{
     showError(error:any){
         this.hideLoading = true;
         console.log(error);
-        this.showSnackBar(error.json().error,false);
-        return Observable.throw(error.json().error || 'Server error');
+        this.showSnackBar(error,false);
+        return Observable.throw(error || 'Server error');
     }
 
     toUrl(array?):String{
@@ -75,7 +75,8 @@ export class SDK{
     }
   
     loggedIn() {
-        return tokenNotExpired();
+        // return tokenNotExpired();
+        return localStorage.hasOwnProperty('currentUser');
     }
 
     /* SDK */
@@ -109,7 +110,4 @@ export class SDK{
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
-
-
-
 }
