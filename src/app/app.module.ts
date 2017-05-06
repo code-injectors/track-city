@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MaterialModule } from '@angular/material'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs'
+
 import { AppComponent } from './app.component';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -18,10 +22,10 @@ const appRoutes: Routes = [
     { path: 'login', component: loginView },
     { path: 'admin', component: adminView, 
       children: [
-        { path: '', redirectTo: 'reports', pathMatch: 'full' },
-        { path: 'reports', component: reportsView },
-        { path: 'new', component: newView },
-        { path: 'users', component: usersView }
+        { path: '', redirectTo: 'reports', pathMatch: 'full', outlet:'admin' },
+        { path: 'reports', component: reportsView, outlet:'admin' },
+        { path: 'new', component: newView, outlet:'admin' },
+        { path: 'users', component: usersView, outlet:'admin' }
     ]},
 
 ];
@@ -39,7 +43,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,13 @@
-<p>
-  admin works!
-</p>
+<md-toolbar>
+    <span>Title</span>
+</md-toolbar>
+
+<md-sidenav-container>
+    <md-sidenav mode="side" align="start" opened>
+        Sidenav content
+    </md-sidenav>
+    <!-- Body -->
+    <div class="view">
+        <router-outlet name="admin"></router-outlet>
+    </div>
+</md-sidenav-container>
