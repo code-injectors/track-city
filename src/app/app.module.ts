@@ -14,7 +14,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 
 import { newDialog } from './dialogs/new/new.component';
-import { editDialog } from './dialogs/new/new.component';
+import { editDialog } from './dialogs/edit/edit.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
