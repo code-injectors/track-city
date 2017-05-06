@@ -18,7 +18,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { loginView } from './views/login/login.component';
 import { adminView } from './views/admin/admin/admin.component';
 import { reportsView } from './views/admin/reports/reports.component';
-import { newView } from './views/admin/new/new.component';
 import { usersView } from './views/admin/users/users.component';
 
 const appRoutes: Routes = [
@@ -28,7 +27,6 @@ const appRoutes: Routes = [
       children: [
         { path: '', component: reportsView, outlet:'admin' },
         { path: 'reports', component: reportsView, outlet:'admin' },
-        { path: 'new', component: newView, outlet:'admin' },
         { path: 'users', component: usersView, outlet:'admin' }
     ]},
 
@@ -40,7 +38,6 @@ const appRoutes: Routes = [
         loginView,
         adminView,
         reportsView,
-        newView,
         usersView
     ],
     imports: [

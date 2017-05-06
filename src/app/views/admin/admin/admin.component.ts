@@ -15,11 +15,6 @@ export class adminView implements OnInit {
             icon: ''
         },
         {
-            title: 'New report',
-            url: 'new',
-            icon: ''
-        },
-        {
             title: 'Users',
             url: 'users',
             icon: ''
