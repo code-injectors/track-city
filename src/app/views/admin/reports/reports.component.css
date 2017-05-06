@@ -6,3 +6,19 @@
     height: 600px;
     width: 100%;
 }
+.category{
+    opacity: 0.6;
+}
+.mat-icon-button{
+    width: auto;
+    margin: 0 8px;
+}
+.accepted{
+    color: rgb(0,255,0);
+}
+.rejected{
+    color: rgb(255,0,0);
+}
+.filter{
+    margin: 24px;
+}
