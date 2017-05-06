@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SDK } from './../../app.sdk';
 
 @Component({
     selector: 'app-login',
@@ -8,14 +9,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class loginView implements OnInit {
 
-    constructor(public router:Router) { }
+    constructor(public router:Router,public sdk:SDK) { }
 
     ngOnInit() {
     }
 
     login(){
-
-        this.router.navigate(['/admin']);
+        this.sdk.getUsers().subscribe(result => {
+            console.log(result);
+        });
+        //this.router.navigate(['/admin']);
     }
 
 }
