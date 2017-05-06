@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
@@ -7,9 +7,9 @@ import { AgmCoreModule } from '@agm/core';
 })
 export class reportsView implements OnInit {
 
-  lat:Number = 51.507351;
-  lng:Number = -0.127758;
-  zoom:Number = 9;
+  lat:Number = 41.08247;
+  lng:Number = 23.5437952;
+  zoom:Number = 16;
 
   constructor() { }
 
@@ -50,6 +50,33 @@ export class reportsView implements OnInit {
 		  label: 'C',
 		  draggable: true
 	  }
+  ]
+
+  reports: any[] = [
+    {
+        title: 'test1',
+        description: 'description1 sal;kjflk;aglkjhklhj',
+        longitude: 8577865,
+        latitude: 85758765,
+        category: 'dummy',
+        creator: 'tzinos',
+    },
+    {
+        title: 'test2',
+        description: 'description1 sal;kjflk;aglkjhklhj',
+        longitude: 8577865,
+        latitude: 85758765,
+        category: 'dummy',
+        creator: 'tzinos',
+    },
+    {
+        title: 'test3',
+        description: 'description1 sal;kjflk;aglkjhklhj',
+        longitude: 8577865,
+        latitude: 85758765,
+        category: 'dummy',
+        creator: 'tzinos',
+    },
   ]
 }
 

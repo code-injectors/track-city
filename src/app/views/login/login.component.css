@@ -10,9 +10,6 @@
 .loginCard .input{
     width: 100%;
 }
-.loginCard .actions{
-    text-align: right;
-}
 .loginCard .actions button{
     margin-right: 20px;
 }

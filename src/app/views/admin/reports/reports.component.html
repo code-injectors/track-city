@@ -3,10 +3,20 @@
 
 <md-tab-group>
     <md-tab label="List">
+
+        <md-list>
+            <md-list-item *ngFor="let report of reports">
+                <img md-list-avatar src="" alt="avatar">
+                <h3 md-line>{{ report.title }}</h3>
+                <p md-line>
+                  <span>{{ report.category }}</span>
+                </p>
+            </md-list-item>
+        </md-list>
       
     </md-tab>
     <md-tab label="Map" class="map">
-        <sebm-google-map [latitude]="lat" [longitude]="lng">
+        <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
             <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
         </sebm-google-map>
     </md-tab>
