@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './../../models/user';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class userDialog{
-
-  constructor() { }
+  user:User;
+  constructor() {}
 
   ngOnInit() {
   }

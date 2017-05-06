@@ -52,14 +52,14 @@ export class reportsView implements OnInit {
     }
     
     markerDragEnd(m: marker, $event: MouseEvent) {
-      console.log('dragEnd', m, $event);
+        console.log('dragEnd', m, $event);
     }
 
     openDialog() {
-      this.dialog.open(reportDialog, this.config);
-      this.dialogRef.afterClosed().subscribe(result => {
-        this.dialogRef = null;
-      });
+        this.dialogRef = this.dialog.open(reportDialog, this.config);
+        this.dialogRef.afterClosed().subscribe(result => {
+            this.dialogRef = null;
+        });
     }
     
     show: any[] = [

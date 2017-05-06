@@ -17,6 +17,6 @@
         <p md-line>
             <span class="category">{{ user.email }}</span>
         </p>
-        <a md-raised-button >Edit</a>
+        <a md-raised-button (click)="editUser(user.id)">Edit</a>
     </md-list-item>
 </md-list>

@@ -1,11 +1,32 @@
 
-<h1 md-dialog-title>Title</h1>
+<h1 md-dialog-title>Edit user</h1>
 
 <md-dialog-content>
-    Dialog content
+    <md-input-container [floatPlaceholder]="auto" dividerColor="primary" align="start">
+        <input mdInput [(ngModel)]="" type="text" required
+               placeholder="First name">
+    </md-input-container>
+    <md-input-container [floatPlaceholder]="auto" dividerColor="primary" align="start">
+        <input mdInput [(ngModel)]="" type="text" required
+               placeholder="Last name">
+    </md-input-container>
+    <md-input-container [floatPlaceholder]="auto" dividerColor="primary" align="start">
+        <input mdInput [(ngModel)]="" type="text" required
+               placeholder="Email">
+    </md-input-container>
+    <md-input-container [floatPlaceholder]="auto" dividerColor="primary" align="start">
+        <input mdInput [(ngModel)]="" type="text" required
+               placeholder="Password">
+    </md-input-container>
+    <md-select [(ngModel)]="" placeholder="Municipality">
+        <md-option [value]=""></md-option>
+    </md-select>
+    <md-select [(ngModel)]="" placeholder="Role">
+        <md-option [value]=""></md-option>
+    </md-select>
 </md-dialog-content>
 
 <md-dialog-actions>
-    <button md-button md-dialog-close>Close dialog</button>
-    <button md-button>Edit</button>
+    <button md-button md-dialog-close>Cancel</button>
+    <button md-button>Save</button>
 </md-dialog-actions>

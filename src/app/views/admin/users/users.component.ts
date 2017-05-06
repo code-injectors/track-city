@@ -22,7 +22,7 @@ export class usersView implements OnInit {
         }
     };
 
-    constructor(public sdk:SDK) { }
+    constructor(public sdk:SDK,public dialog: MdDialog) { }
 
     ngOnInit() {
         this.query = new userFilter(
@@ -70,5 +70,12 @@ export class usersView implements OnInit {
             this.users = result;
         });
         //this.router.navigate(['/admin']);
+    }
+
+    editUser(){
+        this.dialogRef = this.dialog.open(userDialog, this.config);
+        this.dialogRef.afterClosed().subscribe(result => {
+            this.dialogRef = null;
+        });
     }
 }

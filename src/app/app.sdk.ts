@@ -13,6 +13,7 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 export class SDK{
     public hideLoading:boolean= true;
     private sdkUrl = 'http://46.101.247.89:8080/';
+    //private sdkUrl = 'http://10.42.0.94:8080/';
     private loginUrl = 'http://10.42.0.94:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
@@ -66,7 +67,7 @@ export class SDK{
         return this.http.post(this.loginUrl+'auth', { username: email, password: password })
                     .map((res:any) => {
                         console.log(this.headers);
-                        this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : 'Bearer ' + res.token});
+                        this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : res.token});
                         localStorage.setItem('currentUser',res.token);
                         return res.json()
                     }) // ...and calling .json() on the response to return data
