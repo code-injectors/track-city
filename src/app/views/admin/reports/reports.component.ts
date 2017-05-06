@@ -15,6 +15,8 @@ export class reportsView implements OnInit {
     lng:Number = 23.5437952;
     zoom:Number = 16;
 
+    status = [];
+    categories = [];
     reports = [];
 
     config: MdDialogConfig = {
@@ -30,8 +32,9 @@ export class reportsView implements OnInit {
         this.query = new reportFilter(
             {title: 'title', value: ''},
             {title: 'status', value: ''},
-            {title: 'category', value: ''},
+            {title: 'category.id', value: ''},
             {title: 'sort', value: ''});
+        this.initFilters();
         this.filter();
     }
 
@@ -40,10 +43,12 @@ export class reportsView implements OnInit {
     }
     
     mapClicked($event: any) {
-      this.markers.push({
-        lat: $event.coords.lat,
-        lng: $event.coords.lng
-      });
+        /*
+        this.markers.push({
+          lat: $event.coords.lat,
+          lng: $event.coords.lng
+        });
+        */
     }
     
     markerDragEnd(m: marker, $event: MouseEvent) {
@@ -57,25 +62,13 @@ export class reportsView implements OnInit {
       });
     }
     
-    markers: marker[] = [
-      {
-        lat: 51.673858,
-        lng: 7.815982,
-        label: 'A',
-        draggable: true
-      },
-      {
-        lat: 51.373858,
-        lng: 7.215982,
-        label: 'B',
-        draggable: false
-      },
-      {
-        lat: 51.723858,
-        lng: 7.895982,
-        label: 'C',
-        draggable: true
-      }
+    show: any[] = [
+        {
+            value: 'All'
+        },
+        {
+            value: 'Specific filter'
+        }
     ]
 
     filters: any[] = [
@@ -97,6 +90,25 @@ export class reportsView implements OnInit {
             this.reports = result.content;
         });
         //this.router.navigate(['/admin']);
+    }
+    initFilters(){
+        
+        console.log(this.query);
+        this.sdk.hideLoading =  false;
+        this.sdk.getCategories().subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
+            this.categories = result.content;
+        });
+        /*
+        console.log(this.query);
+        this.sdk.hideLoading =  false;
+        this.sdk.getStatus().subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
+            this.status = result.content;
+        });
+        */
     }
 }
 

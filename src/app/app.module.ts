@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Http, RequestOptions } from '@angular/http';
 
 import { AuthModule } from 'angular2-auth';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -42,10 +41,6 @@ const appRoutes: Routes = [
 
 ];
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-    return new AuthHttp(new AuthConfig(), http, options);
-}
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -69,12 +64,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ],
     providers: [
         SDK,
-        AuthGuard,
-        {
-            provide: AuthHttp,
-            useFactory: authHttpServiceFactory,
-            deps: [Http, RequestOptions]
-        }
+        AuthGuard
     ],
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],

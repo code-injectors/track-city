@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Observable } from 'rxjs/Rx';
 
-import { tokenNotExpired } from 'angular2-jwt';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -19,7 +17,7 @@ export class SDK{
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
 
-    constructor (private authHttp: AuthHttp,private http: Http,public snackBar: MdSnackBar) {}
+    constructor (private http: Http,public snackBar: MdSnackBar) {}
 
     showSnackBar(message,action,addClass?){
         console.log(message);
@@ -48,7 +46,7 @@ export class SDK{
                 url += array[toArray[i]].title + "=";
                 let valueArray = array[toArray[i]].value;
                 url += valueArray[0];
-                for (let j=1;j<valueArray.length-1;j++) {
+                for (let j=1;j<valueArray.length;j++) {
                     url += ',' + valueArray[j];
                 }
                 url += '&';
@@ -66,16 +64,21 @@ export class SDK{
 
     login(email: string, password: string) : Observable<any> {
         return this.http.post(this.loginUrl+'auth', { username: email, password: password })
-                    .map((res:any) => res.json()) // ...and calling .json() on the response to return data
+                    .map((res:any) => {
+                        console.log(this.headers);
+                        this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : 'Bearer ' + res.token});
+                        localStorage.setItem('currentUser',res.token);
+                        return res.json()
+                    }) // ...and calling .json() on the response to return data
                     .catch((error:any) => this.showError(error)); //...errors if any
-    }
+    } 
   
     logout() {
         localStorage.removeItem('currentUser');
     }
   
     loggedIn() {
-        // return tokenNotExpired();
+        //return tokenNotExpired();
         return localStorage.hasOwnProperty('currentUser');
     }
 
@@ -85,7 +88,7 @@ export class SDK{
          let bodyString = this.toUrl(body);
          console.log(bodyString);
 
-         return this.authHttp.get(this.sdkUrl+'users'+bodyString, this.options) // ...using post request
+         return this.http.get(this.sdkUrl+'users'+bodyString, this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
@@ -94,7 +97,19 @@ export class SDK{
          let bodyString = this.toUrl(body);
          console.log(bodyString);
 
-         return this.authHttp.get(this.sdkUrl+'reports'+bodyString, this.options) // ...using post request
+         return this.http.get(this.sdkUrl+'reports'+bodyString, this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
+    getCategories() : Observable<any> {
+         return this.http.get(this.sdkUrl+'categories', this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
+    getStatus() : Observable<any> {
+         return this.http.get(this.sdkUrl+'status', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
@@ -106,7 +121,7 @@ export class SDK{
          }
          //console.log(bodyString);
 
-         return this.authHttp.post(this.sdkUrl+'users', bodyString, this.options) // ...using post request
+         return this.http.post(this.sdkUrl+'users', bodyString, this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }

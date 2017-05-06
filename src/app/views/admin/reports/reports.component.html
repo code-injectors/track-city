@@ -1,15 +1,15 @@
 
 <div class="filters">
    <md-input-container [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
-        <input mdInput [(ngModel)]="query.search.value" type="text" placeholder="Search..">
+        <input mdInput [(ngModel)]="query.search.value" (change)="filter()" type="text" placeholder="Search..">
     </md-input-container>
-    <md-select multiple [(ngModel)]="query.status.value" class="filter" placeholder="Show">
-        <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
+    <md-select multiple [(ngModel)]="query.status.value" (change)="filter()" class="filter" placeholder="Show">
+        <md-option *ngFor="let stat of status" [value]="stat.id">{{ stat.name }}</md-option>
     </md-select>
-    <md-select multiple [(ngModel)]="query.category.value" class="filter" placeholder="Category">
-        <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
+    <md-select multiple [(ngModel)]="query.category.value" (change)="filter()" class="filter" placeholder="Category">
+        <md-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</md-option>
     </md-select>
-    <md-select multiple [(ngModel)]="query.sort.value" class="filter" placeholder="Sort">
+    <md-select [(ngModel)]="query.sort.value" (change)="filter()" class="filter" placeholder="Sort">
         <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
     </md-select>
 </div>
@@ -22,15 +22,15 @@
                 <img md-list-avatar src="" alt="avatar">
                 <h3 md-line>{{ report.title }}</h3>
                 <p md-line>
-                  <span class="category">{{ report.category }}</span>
+                  <span class="category">{{ report.category.name }}</span>
                 </p>
-                <a md-icon-button >
+                <a md-icon>
                     <md-icon class="md-24 accepted">thumb_up</md-icon>
-                    {{ report.thumb_up }}
+                    {{ report.upVotes }}
                 </a>
-                <a md-icon-button >
+                <a md-icon >
                     <md-icon class="md-24 rejected">thumb_down</md-icon>
-                    {{ report.thumb_down }}
+                    {{ report.downVotes }}
                 </a>
                 <a md-raised-button >Reject</a>
                 <a md-raised-button >Accept</a>
@@ -39,7 +39,7 @@
     </md-tab>
     <md-tab label="Map" class="map">
         <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-            <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+            <sebm-google-map-marker *ngFor="let report of reports" [latitude]="report.latitude" [longitude]="report.longitude"></sebm-google-map-marker>
         </sebm-google-map>
     </md-tab>
 </md-tab-group>
