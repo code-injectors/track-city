@@ -20,8 +20,9 @@ export class loginView implements OnInit {
         this.sdk.login(email,password).subscribe(result => {
             this.sdk.hideLoading =  true;
             console.log(result);
+            localStorage.setItem('currentUser', JSON.stringify({ username: email, token: result.token }));
+            this.router.navigate(['/admin']);
         });
-        //this.router.navigate(['/admin']);
     }
 
 }
