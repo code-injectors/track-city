@@ -6,11 +6,9 @@
 <md-sidenav-container>
     <md-sidenav #sidenav mode="side" align="start" opened="true">
         <md-nav-list>
-            <md-list-item *ngFor="let link of links">
-                <button md-icon-button (click)="navigate(link.url)">
-                    <md-icon>{{ link.icon }}</md-icon>
-                    {{ link.title }}
-                </button>
+            <md-list-item (click)="navigate(link.url)" *ngFor="let link of links">
+                <md-icon>{{ link.icon }}</md-icon>
+                {{ link.title }}
             </md-list-item>
         </md-nav-list>
     </md-sidenav>
