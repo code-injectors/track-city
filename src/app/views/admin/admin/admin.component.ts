@@ -6,15 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class adminView implements OnInit {
-    showMenu:boolean=true;
+
+    links = [
+        {
+            title: 'Reports',
+            url: 'reports',
+            icon: ''
+        },
+        {
+            title: 'new',
+            url: 'new',
+            icon: ''
+        },
+        {
+            title: 'users',
+            url: 'users',
+            icon: ''
+        }
+    ]
 
     constructor() { }
 
     ngOnInit() {
-    }
-
-    toggleMenu(){
-        this.showMenu != this.showMenu;
     }
 
 }
