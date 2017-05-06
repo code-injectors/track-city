@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { editDialog } from './../../../dialogs/edit/edit.component';
 import { SDK } from './../../../app.sdk';
+import { userFilter } from './../../../models/userFilter';
 
 @Component({
   selector: 'app-users',
@@ -9,6 +10,7 @@ import { SDK } from './../../../app.sdk';
   styleUrls: ['./users.component.css']
 })
 export class usersView implements OnInit {
+    query: userFilter;
     dialogRef: MdDialogRef<editDialog>;
 
     users = [];
@@ -23,6 +25,11 @@ export class usersView implements OnInit {
     constructor(public sdk:SDK) { }
 
     ngOnInit() {
+        this.query = new userFilter(
+            {title: 'title', value: ''},
+            {title: 'role.name', value: ''},
+            {title: 'sort', value: ''});
+        this.filter();
     }
 
     filters: any[] = [
@@ -34,9 +41,29 @@ export class usersView implements OnInit {
         }
     ]
 
-    filter(){
+    roles: any[] = [ 
+        {
+            title: 'Super User',
+            value: 'SUPER_USER'
+        },
+        {
+            title: 'Admin',
+            value: 'MUNICIPALITY_ADMIN'
+        },
+        {
+            title: 'Employee',
+            value: 'EMPLOYEE'
+        },
+        {
+            title: 'Client',
+            value: 'CLIENT'
+        }
+    ]
 
-        this.sdk.getUsers().subscribe(result => {
+    filter(){
+        
+        console.log(this.query);
+        this.sdk.getUsers(this.query).subscribe(result => {
             console.log(result);
             this.users = result;
         });
