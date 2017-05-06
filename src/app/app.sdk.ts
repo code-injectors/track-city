@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
-import { User } from './models/user';
+//import { User } from './models/user';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -31,7 +31,7 @@ export class SDK{
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    getUsers(body?: Object) : Observable<User[]> {
+    getUsers(body?: Object) : Observable<any> {
          let bodyString = '';
          if(body){
              bodyString = JSON.stringify(body);
@@ -43,7 +43,7 @@ export class SDK{
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
 
-    newUser(body?: Object) : Observable<User[]> {
+    newUser(body?: Object) : Observable<any> {
          let bodyString = '';
          if(body){
              bodyString = JSON.stringify(body);

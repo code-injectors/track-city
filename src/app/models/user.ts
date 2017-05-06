@@ -7,5 +7,6 @@ export class User {
         public lastName:string,
         public municipality:string,
         public role:any,
+        public content:any
     ){}
 }

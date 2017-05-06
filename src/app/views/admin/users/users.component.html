@@ -1,17 +1,17 @@
 <div class="filters">
-   <md-input-container [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
+   <md-input-container (change)="filter()" [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
         <input mdInput [(ngModel)]="componentProperty" type="text" placeholder="Search..">
     </md-input-container>
-    <md-select multiple class="filter" placeholder="Role">
+    <md-select (change)="filter()" multiple class="filter" placeholder="Role">
         <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
     </md-select>
-    <md-select multiple class="filter" placeholder="Sort">
+    <md-select (change)="filter()" multiple class="filter" placeholder="Sort">
         <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
     </md-select>
 </div>
 
 <md-list>
-    <md-list-item *ngFor="let user of users">
+    <md-list-item *ngFor="let user of users.content">
         <img md-list-avatar src="" alt="avatar">
         <h3 md-line>{{ user.firstName }} {{ user.lastName }}</h3>
         <p md-line>

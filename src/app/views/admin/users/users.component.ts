@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { editDialog } from './../../../dialogs/edit/edit.component';
+import { SDK } from './../../../app.sdk';
 
 @Component({
   selector: 'app-users',
@@ -10,6 +11,8 @@ import { editDialog } from './../../../dialogs/edit/edit.component';
 export class usersView implements OnInit {
     dialogRef: MdDialogRef<editDialog>;
 
+    users = [];
+
     config: MdDialogConfig = {
         disableClose: false,
         data: {
@@ -17,7 +20,7 @@ export class usersView implements OnInit {
         }
     };
 
-    constructor() { }
+    constructor(public sdk:SDK) { }
 
     ngOnInit() {
     }
@@ -31,21 +34,12 @@ export class usersView implements OnInit {
         }
     ]
 
-    users: any[] = [
-        {
-            firstName: 'test1',
-            lastName: 'description1 sal;kjflk;aglkjhklhj',
-            email: 8577865,
-        },
-        {
-            firstName: 'test1',
-            lastName: 'description1 sal;kjflk;aglkjhklhj',
-            email: 8577865,
-        },
-        {
-            firstName: 'test1',
-            lastName: 'description1 sal;kjflk;aglkjhklhj',
-            email: 8577865,
-        }
-    ]
+    filter(){
+
+        this.sdk.getUsers().subscribe(result => {
+            console.log(result);
+            this.users = result;
+        });
+        //this.router.navigate(['/admin']);
+    }
 }
