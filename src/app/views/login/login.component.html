@@ -1,24 +1,36 @@
-<md-card>
-    <md-card-header>
-        <md-card-title>Login</md-card-title>
-        <md-card-subtitle>track-city</md-card-subtitle>
-    </md-card-header>
-    <!--<img md-card-image src="Card wide image source">-->
-    <md-card-content>
-        <md-input-container [floatPlaceholder]="always" dividerColor="primary" align="start">
-            <input mdInput name="componentProperty" [(ngModel)]="componentProperty" type="text" required
-                   placeholder="">
-            <span mdPrefix></span>
-            <span mdSuffix></span>
-            <md-hint align="end">
-                Hint text
-            </md-hint>
-        </md-input-container>
-    </md-card-content>
-    <md-card-actions align="start|end">
-        <button md-button (click)="login()">Login</button>
-    </md-card-actions>
-    <md-card-footer>
-        version 1.0.0
-    </md-card-footer>
-</md-card>
+<div class="loginWrapper" fxLayout="row" fxLayoutAlign="center center">
+    <md-card class="loginCard">
+        <md-card-header  >
+            <md-card-title>Login</md-card-title>
+            <md-card-subtitle>track-city</md-card-subtitle>
+        </md-card-header>
+        <!--<img md-card-image src="Card wide image source">-->
+        <md-card-content>
+            <md-input-container class="input" [floatPlaceholder]="always" dividerColor="primary" align="start">
+                <input mdInput name="componentProperty" [(ngModel)]="componentProperty" type="text" required
+                      placeholder="">
+                <span mdPrefix></span>
+                <span mdSuffix></span>
+                <md-hint align="end">
+                    Email
+                </md-hint>
+            </md-input-container>
+            <md-input-container class="input" [floatPlaceholder]="always" dividerColor="primary" align="start">
+                <input mdInput name="componentProperty" [(ngModel)]="componentProperty" type="text" required
+                      placeholder="">
+                <span mdPrefix></span>
+                <span mdSuffix></span>
+                <md-hint align="end">
+                    Password
+                </md-hint>
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions class="actions" align="start|end">
+            <button md-raised-button (click)="login()">Login</button>
+        </md-card-actions>
+        <md-card-footer class="footer">
+            version 1.0.0
+        </md-card-footer>
+    </md-card>
+</div>
+
