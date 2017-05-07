@@ -10,7 +10,7 @@
         <md-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</md-option>
     </md-select>
     <md-select [(ngModel)]="query.sort.value" (change)="filter()" class="filter" placeholder="Sort">
-        <md-option *ngFor="let filter of filters" [value]="filters.value">{{ filter.value }}</md-option>
+        <md-option *ngFor="let field of sort" [value]="field.value">{{ field.name }}</md-option>
     </md-select>
 </div>
 

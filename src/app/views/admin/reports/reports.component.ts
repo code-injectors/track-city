@@ -15,7 +15,6 @@ export class reportsView implements OnInit {
     lng:Number = 23.5437952;
     zoom:Number = 16;
 
-    status = [];
     categories = [];
     reports = [];
 
@@ -62,21 +61,37 @@ export class reportsView implements OnInit {
         });
     }
     
-    show: any[] = [
+    sort = [
         {
-            value: 'All'
+            name: 'Up votes',
+            value: 'upVotes'
         },
         {
-            value: 'Specific filter'
+            name: 'Down votes',
+            value: 'downVotes'
+        },
+        {
+            name: 'Status',
+            value: 'status'
+        },
+        {
+            name: 'Category',
+            value: 'category'
         }
     ]
 
-    filters: any[] = [
+    status = [
         {
-            value: 'All'
+            name: 'New',
+            value: 'NEW'
         },
         {
-            value: 'Specific filter'
+            name: 'Pending',
+            value: 'PENDING'
+        },
+        {
+            name: 'Resolved',
+            value: 'RESOLVED'
         }
     ]
 
@@ -89,7 +104,6 @@ export class reportsView implements OnInit {
             console.log(result);
             this.reports = result.content;
         });
-        //this.router.navigate(['/admin']);
     }
     initFilters(){
         
@@ -100,15 +114,6 @@ export class reportsView implements OnInit {
             console.log(result);
             this.categories = result.content;
         });
-        /*
-        console.log(this.query);
-        this.sdk.hideLoading =  false;
-        this.sdk.getStatus().subscribe(result => {
-            this.sdk.hideLoading =  true;
-            console.log(result);
-            this.status = result.content;
-        });
-        */
     }
 }
 
