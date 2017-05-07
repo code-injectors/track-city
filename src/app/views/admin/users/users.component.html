@@ -3,7 +3,7 @@
         <input mdInput #searchInput [(ngModel)]="query.search.value" (change)="filter()" (keyup)="filter()" type="text" placeholder="Search..">
     </md-input-container>
     <md-select #roleFilter [(ngModel)]="query.role.value" (change)="filter()" multiple class="filter" placeholder="Role">
-        <md-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</md-option>
+        <md-option *ngFor="let role of roles" [value]="role.id">{{ role.title }}</md-option>
     </md-select>
     <md-select #sortFilter [(ngModel)]="query.sort.value" (change)="filter()" class="filter" placeholder="Sort">
         <md-option *ngFor="let field of sort" [value]="field.value">{{ field.name }}</md-option>

@@ -19,7 +19,8 @@ export class SDK{
     private loginUrl = 'http://10.42.0.94:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
-
+    private status;
+    
     constructor (private http: Http,public snackBar: MdSnackBar) {
         let token = localStorage.getItem('token');
         if(token){
