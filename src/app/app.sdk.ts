@@ -77,19 +77,19 @@ export class SDK{
                         $this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : res.json().token});
                         $this.options = new RequestOptions({ headers: $this.headers });
                         console.log($this.options);
-                        localStorage.setItem('currentUser',res.json().token);
+                        localStorage.setItem('token',res.json().token);
                         return res.json()
                     }) // ...and calling .json() on the response to return data
                     .catch((error:any) => this.showError(error)); //...errors if any
     } 
   
     logout() {
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
     }
   
     loggedIn() {
         //return tokenNotExpired();
-        return localStorage.hasOwnProperty('currentUser');
+        return localStorage.hasOwnProperty('token');
     }
 
     /* SDK */
