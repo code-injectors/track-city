@@ -48,6 +48,20 @@
 
 .action {
     margin: 0 10px;
+    float: right;
+}
+
+.pending{
+    border-left: 10px solid rgba(220,90,60,0.4);
+}
+.new{
+    border-left: 10px solid rgba(60,90,240,0.4);
+}
+.standy{
+    border-left: 10px solid rgba(240,30,30,0.4);
+}
+.resolved{
+    border-left: 10px solid rgba(40,230,30,0.4);
 }
 
 

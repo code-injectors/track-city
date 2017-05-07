@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { User } from './../../models/user';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
     selector: 'app-user',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class municipalityDialog{
     //user:User;
+    public dialogRef: MdDialogRef<municipalityDialog>;
     public roles:any;
     public users:any;
-    public municipalities:any;
 
     constructor() {}
 

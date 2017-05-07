@@ -16,12 +16,12 @@
     </md-input-container>
 
     <md-select class="elementSelect" placeholder="User">
-        <md-option *ngFor="let municipality of municipalities" [value]="municipality.id">{{ municipality.name }}</md-option>
+        <md-option *ngFor="let user of users" [value]="user.id">{{ user.firstName }} {{ user.lastName }}</md-option>
     </md-select>
 
 </md-dialog-content>
 
-<md-dialog-actions class="actions">
+<md-dialog-actions align="end">
     <button md-button md-dialog-close>Cancel</button>
-    <button md-raised-button color="primary" (click)="dialogRef.close('save')" >Save</button>
+    <button md-raised-button color="primary" >Save</button>
 </md-dialog-actions>

@@ -93,6 +93,14 @@ export class reportsView implements OnInit {
         {
             name: 'Resolved',
             value: 'RESOLVED'
+        },
+        {
+            name: 'Stand by',
+            value: 'STAND_BY'
+        },
+        {
+            name: 'All',
+            value: ''
         }
     ]
 
@@ -114,6 +122,23 @@ export class reportsView implements OnInit {
             this.sdk.hideLoading =  true;
             console.log(result);
             this.categories = result.content;
+        });
+    }
+
+    rejectReport(id){
+        console.log(id);
+        this.sdk.hideLoading =  false;
+        this.sdk.rejectReport(id).subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
+        });
+    }
+    acceptReport(id){
+        console.log(id);
+        this.sdk.hideLoading =  false;
+        this.sdk.acceptReport(id).subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
         });
     }
 }

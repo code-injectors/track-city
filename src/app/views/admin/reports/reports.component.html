@@ -18,7 +18,7 @@
     <md-tab (click)="map.triggerResize(true)" label="List">
 
         <md-list class="list">
-            <md-list-item *ngFor="let report of reports">
+            <md-list-item *ngFor="let report of reports" [ngClass]="{'new':report.status=='NEW','pending':report.status=='PENDING','standby':report.status=='STANDBY'}">
                 <img md-list-avatar src="" alt="avatar">
                 <h3 md-line>{{ report.title }}</h3>
                 <p md-line>
@@ -32,8 +32,8 @@
                     <md-icon class="md-24 rejected">thumb_down</md-icon>
                     {{ report.downVotes }}
                 </a>
-                <a md-raised-button class="action" >Reject</a>
-                <a md-raised-button class="action">Accept</a>
+                <a md-raised-button (click)="rejectReport(report.id)" class="action">Reject</a>
+                <a md-raised-button (click)="acceptReport(report.id)" class="action">Accept</a>
             </md-list-item>
         </md-list>
     </md-tab>
