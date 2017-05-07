@@ -15,6 +15,7 @@ export class usersView implements OnInit {
 
     users = [];
     roles = [];
+    municipalities = [];
 
     sort = [
         {
@@ -67,6 +68,12 @@ export class usersView implements OnInit {
             this.sdk.hideLoading =  true;
             console.log(result);
             this.roles = result.content;
+        });
+
+        this.sdk.getMunicipalities().subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
+            this.municipalities = result.content;
         });
     }
 

@@ -1,21 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
-import { reportDialog } from './../../../dialogs/report/report.component';
+import { municipalityDialog } from './../../../dialogs/municipality/municipality.component';
 import { SDK } from './../../../app.sdk';
-import { reportFilter } from './../../../models/reportFilter';
+import { municipalityFilter } from './../../../models/municipalityFilter';
 
 import { SebmGoogleMap } from 'angular2-google-maps/core';
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.component.html',
+  selector: 'app-municipalities',
+  templateUrl: './municipalities.component.html',
   entryComponents: [SebmGoogleMap],
-  styleUrls: ['./reports.component.css']
+  styleUrls: ['./municipalities.component.css']
 })
-export class reportsView implements OnInit {
+export class municipalitiesView implements OnInit {
     @ViewChild(SebmGoogleMap) map: SebmGoogleMap
-    query: reportFilter;
-    dialogRef: MdDialogRef<reportDialog>;
+    query: municipalityFilter;
+    dialogRef: MdDialogRef<municipalityDialog>;
     lat:Number = 41.08247;
     lng:Number = 23.5437952;
     zoom:Number = 16;
@@ -33,7 +33,7 @@ export class reportsView implements OnInit {
     constructor(public sdk:SDK,public dialog: MdDialog) { }
 
     ngOnInit() {
-        this.query = new reportFilter(
+        this.query = new municipalityFilter(
             {title: 'title', value: ''},
             {title: 'status', value: ''},
             {title: 'category.id', value: ''},
@@ -59,7 +59,7 @@ export class reportsView implements OnInit {
     }
 
     openDialog() {
-        this.dialogRef = this.dialog.open(reportDialog, this.config);
+        this.dialogRef = this.dialog.open(municipalityDialog, this.config);
         this.dialogRef.afterClosed().subscribe(result => {
             this.dialogRef = null;
         });

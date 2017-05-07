@@ -1,0 +1,13 @@
+.newCard{
+    width: 260px;
+}
+.element{
+    width: 100%;
+}
+.elementSelect{
+    width: 100%;
+    margin: 16px 0 4px 0;
+}
+.actions{
+    text-align: right;
+}

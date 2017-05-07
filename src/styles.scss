@@ -27,8 +27,8 @@ body{
     overflow: hidden;
     z-index: 1000;
 }
-.progress.hide{
-    display: none;
+.hide{
+    display: none!important;
 }
 .progress .determinate {
     position: absolute;

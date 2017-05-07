@@ -1,0 +1,55 @@
+.map{
+    width: 100%;
+    height: 450px;
+}
+.sebm-google-map-container {
+    height: 600px;
+    width: 100%;
+}
+.category{
+    opacity: 0.6;
+}
+.mat-icon-button{
+    width: auto;
+    margin: 0 8px;
+}
+.accepted{
+    color: rgb(0,255,0);
+}
+.rejected{
+    color: rgb(255,0,0);
+}
+.list{
+    height: calc(100% - (200px)); 
+}
+/* Filters */
+.filter{
+    margin: 24px;
+}
+.search{
+    display: block;
+    width: 75%;
+    padding: 16px 24px 0 24px;
+    box-sizing: border-box;
+}
+
+.accepted {
+	color: lightsteelblue;
+}
+
+.rejected {
+	color: lightcoral;
+}
+
+.mat-icon {
+    height: 25px;
+    width: 30px;
+}
+
+.action {
+    margin: 0 10px;
+}
+
+
+
+

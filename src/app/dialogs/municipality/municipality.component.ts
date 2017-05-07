@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './../../models/user';
+//import { User } from './../../models/user';
 
 @Component({
     selector: 'app-user',
-    templateUrl: './user.component.html',
-    styleUrls: ['./user.component.css']
+    templateUrl: './municipality.component.html',
+    styleUrls: ['./municipality.component.css']
 })
-export class userDialog{
-    user:User;
+export class municipalityDialog{
+    //user:User;
     public roles:any;
     public municipalities:any;
 

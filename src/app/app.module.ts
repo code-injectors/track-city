@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 
 import { reportDialog } from './dialogs/report/report.component';
 import { userDialog } from './dialogs/user/user.component';
+import { municipalityDialog } from './dialogs/municipality/municipality.component';
 
 import { SDK } from './app.sdk';
 
@@ -24,6 +25,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { loginView } from './views/login/login.component';
 import { adminView } from './views/admin/admin/admin.component';
 import { reportsView } from './views/admin/reports/reports.component';
+import { municipalitiesView } from './views/admin/municipalities/municipalities.component';
 import { usersView } from './views/admin/users/users.component';
 
 import { AuthGuard } from './app.guard';
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
       children: [
         { path: '', component: reportsView, outlet:'admin', canActivate: [AuthGuard] },
         { path: 'reports', component: reportsView, outlet:'admin', canActivate: [AuthGuard] },
+        { path: 'municipalities', component: municipalitiesView, outlet:'admin', canActivate: [AuthGuard] },
         { path: 'users', component: usersView, outlet:'admin', canActivate: [AuthGuard] }
     ]},
 
@@ -46,8 +49,9 @@ const appRoutes: Routes = [
         loginView,
         adminView,
         reportsView,
+        municipalitiesView,
         usersView,
-        reportDialog, userDialog
+        reportDialog, userDialog, municipalityDialog
     ],
     imports: [
         BrowserModule,
@@ -68,7 +72,7 @@ const appRoutes: Routes = [
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     entryComponents: [
-        userDialog, reportDialog
+        userDialog, reportDialog, municipalityDialog
     ]
 })
 export class AppModule { }
