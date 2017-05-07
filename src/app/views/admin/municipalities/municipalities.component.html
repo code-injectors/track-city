@@ -9,7 +9,7 @@
     <md-tab (click)="map.triggerResize()" label="List">
 
         <md-list class="list">
-            <md-list-item *ngFor="let municipality of municipalities">
+            <md-list-item class="float" *ngFor="let municipality of municipalities">
                 <h3 md-line>{{ municipality.name }}</h3>
                 <a md-raised-button (click)="openDialog()" class="action">Edit</a>
             </md-list-item>

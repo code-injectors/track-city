@@ -123,6 +123,14 @@ export class SDK{
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
 
+    
+    toggleComment(id) : Observable<any> {
+
+         return this.http.get(this.sdkUrl+'review/'+id+'/toggle', this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
     getReports(body?: any) : Observable<any> {
          let bodyString = this.toUrl(body);
          console.log(bodyString);

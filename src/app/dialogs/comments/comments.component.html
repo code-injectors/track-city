@@ -3,9 +3,9 @@
 
 <md-dialog-content>
     <md-list>
-        <md-list-item *ngFor="let review of reviews">
-            <!--<md-icon md-list-icon></md-icon md-list-icon>-->
-            {{ review.comment }}
+        <md-list-item class="float comment" *ngFor="let review of reviews">
+            <div>{{ review.comment }}</div>
+            <i (click)="toggleComment(review.id)" [ngClass]="{'active':!review.hidden}" class="material-icons">remove_red_eye</i>
         </md-list-item>
     </md-list>
 </md-dialog-content>

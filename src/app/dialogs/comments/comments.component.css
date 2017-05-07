@@ -1,3 +1,13 @@
-.newCard{
-    width: 260px;
+.comment{
+    margin: 8px 0;
 }
+.comment i{
+    float: right;
+    cursor: pointer;
+    color: rgba(140,180,220,0.4);
+}
+.comment i.active{
+    color: rgba(40,80,220,0.4);
+}
+
+
