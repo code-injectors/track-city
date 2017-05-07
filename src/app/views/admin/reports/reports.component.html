@@ -1,6 +1,6 @@
 
 <div class="filters">
-   <md-input-container [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
+   <md-input-container class="search" dividerColor="primary" align="start">
         <input mdInput [(ngModel)]="query.search.value" (change)="filter()" (keyup)="filter()" type="text" placeholder="Search..">
     </md-input-container>
     <md-select [(ngModel)]="query.status.value" (change)="filter()" class="filter" placeholder="Show">

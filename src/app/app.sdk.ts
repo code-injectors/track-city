@@ -130,14 +130,14 @@ export class SDK{
 
     acceptReport(id) : Observable<any> {
 
-         return this.http.post(this.sdkUrl+'reports/'+id+'/change-status/'+'new', '', this.options) // ...using post request
+         return this.http.post(this.sdkUrl+'reports/'+id+'/change-status/'+'NEW', '', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
 
     rejectReport(id) : Observable<any> {
 
-         return this.http.post(this.sdkUrl+'reports/'+id+'/change-status/'+'standby', '', this.options) // ...using post request
+         return this.http.post(this.sdkUrl+'reports/'+id+'/change-status/'+'STAND_BY', '', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
