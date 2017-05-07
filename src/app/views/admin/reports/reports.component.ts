@@ -75,6 +75,10 @@ export class reportsView implements OnInit {
             value: 'downVotes'
         },
         {
+            name: 'Date',
+            value: 'createdAt'
+        },
+        {
             name: 'Status',
             value: 'status'
         },

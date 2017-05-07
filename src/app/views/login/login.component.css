@@ -10,11 +10,21 @@
 .loginCard .input{
     width: 100%;
 }
+.loginCard .actions{
+    margin: 0;
+    margin-right: -16px;
+}
 .loginCard .actions button{
     margin-right: 20px;
 }
 .loginCard .footer{
-    text-align: center;
+    text-align: left;
     font-size: 12px;
     color: rgba(0,0,0,.54);
+    margin: 8px 24px;
+    box-sizing: border-box;
+}
+
+.mat-card-header-text{
+    margin: 0px;
 }

@@ -36,6 +36,10 @@ export class usersView implements OnInit {
         {
             name: 'Role',
             value: 'role.name'
+        },
+        {
+            name: 'Date',
+            value: 'createdAt'
         }
     ]
 
@@ -51,7 +55,7 @@ export class usersView implements OnInit {
             {title: 'role.id', value: ''},
             {title: 'sort', value: ''});
         this.sdk.toolbarTitle = 'Users';
-        this.sdk.hideFab = false;
+        this.sdk.hideFab = true;
         this.initFilters();
         this.filter();
     }

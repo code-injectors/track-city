@@ -26,3 +26,13 @@
 .mat-sidenav{
     min-width: 160px;
 }
+.mat-fab, .mat-mini-fab {
+    background-color: #d50000;
+    color: white;
+}
+.fab{
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    z-index: 1000;
+}

@@ -116,6 +116,18 @@ export class SDK{
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
 
+    putReport(id,body?: Object) : Observable<any> {
+         let bodyString = '';
+         if(body){
+             bodyString = JSON.stringify(body);
+         }
+         //console.log(bodyString);
+
+         return this.http.post(this.sdkUrl+'reports/'+id, bodyString, this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
     getCategories() : Observable<any> {
          return this.http.get(this.sdkUrl+'categories', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data

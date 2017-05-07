@@ -32,12 +32,6 @@
     padding: 16px 24px 0 24px;
     box-sizing: border-box;
 }
-.fab{
-    position: absolute;
-    bottom: 40px;
-    right: 48px;
-    z-index: 1000;
-}
 
 .accepted {
 	color: lightsteelblue;
@@ -56,9 +50,6 @@
     margin: 0 10px;
 }
 
-.mat-fab, .mat-mini-fab {
-    background-color: #d50000;
-    color: white;
-}
+
 
 
