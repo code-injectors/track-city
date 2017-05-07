@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class municipalityDialog{
     //user:User;
     public roles:any;
+    public users:any;
     public municipalities:any;
 
     constructor() {}

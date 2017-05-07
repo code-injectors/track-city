@@ -1,5 +1,5 @@
 
-<h1 md-dialog-title>Edit user</h1>
+<h1 md-dialog-title>Edit municipality</h1>
 
 <md-dialog-content>
     <md-input-container class="element" [floatPlaceholder]="auto" dividerColor="primary" align="start">
@@ -23,5 +23,5 @@
 
 <md-dialog-actions class="actions">
     <button md-button md-dialog-close>Cancel</button>
-    <button md-raised-button color="primary">Save</button>
+    <button md-raised-button color="primary" (click)="dialogRef.close('save')" >Save</button>
 </md-dialog-actions>

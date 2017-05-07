@@ -54,6 +54,7 @@ export class municipalitiesView implements OnInit {
 
     openDialog() {
         this.dialogRef = this.dialog.open(municipalityDialog, this.config);
+        this.dialogRef.componentInstance.users = this.users;
         this.dialogRef.afterClosed().subscribe(result => {
             console.log(result);
             this.dialogRef = null;
@@ -102,7 +103,6 @@ export class municipalitiesView implements OnInit {
     }
     initFilters(){
         
-        console.log(this.query);
         this.sdk.hideLoading =  false;
         this.sdk.getUsers({}).subscribe(result => {
             this.sdk.hideLoading =  true;

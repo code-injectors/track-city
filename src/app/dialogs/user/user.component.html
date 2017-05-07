@@ -19,7 +19,7 @@
                placeholder="Password">
     </md-input-container>
     <md-select class="elementSelect" placeholder="Municipality">
-        <md-option [value]=""></md-option>
+        <md-option *ngFor="let municipality of municipalities" [value]="municipality.id">{{ municipality.name }}</md-option>
     </md-select>
     <md-select class="elementSelect" placeholder="Role">
         <md-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</md-option>
