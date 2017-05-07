@@ -18,7 +18,7 @@
     <md-tab (click)="map.triggerResize()" label="List">
 
         <md-list class="list">
-            <md-list-item *ngFor="let report of reports" [ngClass]="{'new':report.status=='NEW','pending':report.status=='PENDING','standby':report.status=='STANDBY'}">
+            <md-list-item *ngFor="let report of reports" [ngClass]="{'new':report.status=='NEW','pending':report.status=='PENDING','standby':report.status=='STAND_BY','resolved':report.status=='RESOLVED'}">
                 <img md-list-avatar src="" alt="avatar">
                 <h3 md-line>{{ report.title }}</h3>
                 <p md-line>
