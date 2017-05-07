@@ -16,6 +16,29 @@ export class usersView implements OnInit {
     users = [];
     roles = [];
 
+    sort = [
+        {
+            name: 'First name',
+            value: 'firstName'
+        },
+        {
+            name: 'Last name',
+            value: 'lastName'
+        },
+        {
+            name: 'Email',
+            value: 'email'
+        },
+        {
+            name: 'Municipality',
+            value: 'municipality.name'
+        },
+        {
+            name: 'Role',
+            value: 'role.name'
+        }
+    ]
+
     config: MdDialogConfig = {
         disableClose: false,
         data: {
@@ -34,15 +57,6 @@ export class usersView implements OnInit {
         this.filter();
     }
 
-    filters: any[] = [
-        {
-            value: 'All'
-        },
-        {
-            value: 'Specific filter'
-        }
-    ]
-
     initFilters(){
         
         this.sdk.hideLoading =  false;
@@ -51,15 +65,6 @@ export class usersView implements OnInit {
             console.log(result);
             this.roles = result.content;
         });
-        /*
-        console.log(this.query);
-        this.sdk.hideLoading =  false;
-        this.sdk.getStatus().subscribe(result => {
-            this.sdk.hideLoading =  true;
-            console.log(result);
-            this.status = result.content;
-        });
-        */
     }
 
     filter(){
@@ -71,7 +76,6 @@ export class usersView implements OnInit {
             console.log(result);
             this.users = result;
         });
-        //this.router.navigate(['/admin']);
     }
 
     editUser(){
