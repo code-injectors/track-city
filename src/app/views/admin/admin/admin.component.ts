@@ -27,7 +27,15 @@ export class adminView implements OnInit {
         }
     ]
 
-    constructor(public sdk:SDK,public router:Router) { }
+    constructor(public sdk:SDK,public router:Router) {
+        if(this.sdk.me && this.sdk.me.status == 'SUPER_USER'){
+            this.links.push({
+                title: 'Municipalities',
+                url: 'municipalities',
+                icon: '',
+            });
+        }
+    }
 
     ngOnInit() {
     }

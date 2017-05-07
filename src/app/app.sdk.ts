@@ -19,8 +19,8 @@ export class SDK{
     private loginUrl = 'http://10.42.0.94:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
-    private status;
-    
+    public me;
+
     constructor (private http: Http,public snackBar: MdSnackBar) {
         let token = localStorage.getItem('token');
         if(token){
@@ -81,6 +81,10 @@ export class SDK{
                         $this.options = new RequestOptions({ headers: $this.headers });
                         console.log($this.options);
                         localStorage.setItem('token',res.json().token);
+                        let $this2 = $this;
+                        this.getMe().subscribe(result => {
+                            $this2.me = result;
+                        });
                         return res.json()
                     }) // ...and calling .json() on the response to return data
                     .catch((error:any) => this.showError(error)); //...errors if any
@@ -102,6 +106,13 @@ export class SDK{
          console.log(bodyString);
 
          return this.http.get(this.sdkUrl+'users'+bodyString, this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
+    getMe() : Observable<any> {
+
+         return this.http.get(this.sdkUrl+'me', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
