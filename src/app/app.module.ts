@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { reportDialog } from './dialogs/report/report.component';
 import { userDialog } from './dialogs/user/user.component';
 import { municipalityDialog } from './dialogs/municipality/municipality.component';
+import { commentsDialog } from './dialogs/comments/comments.component';
 
 import { SDK } from './app.sdk';
 
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
         reportsView,
         municipalitiesView,
         usersView,
-        reportDialog, userDialog, municipalityDialog
+        reportDialog, userDialog, municipalityDialog, commentsDialog
     ],
     imports: [
         BrowserModule,
@@ -72,7 +73,7 @@ const appRoutes: Routes = [
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     entryComponents: [
-        userDialog, reportDialog, municipalityDialog
+        userDialog, reportDialog, municipalityDialog, commentsDialog
     ],
     exports: [
         RouterModule

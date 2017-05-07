@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { reportDialog } from './../../../dialogs/report/report.component';
 import { reportFilter } from './../../../models/reportFilter';
+import { commentsDialog } from './../../../dialogs/comments/comments.component';
 
 import { SebmGoogleMap } from 'angular2-google-maps/core';
 import { SDK } from './../../../app.sdk';
@@ -16,6 +17,7 @@ export class reportsView implements OnInit {
     @ViewChild(SebmGoogleMap) map: SebmGoogleMap
     query: reportFilter;
     dialogRef: MdDialogRef<reportDialog>;
+    dialogCommentsRef: MdDialogRef<commentsDialog>;
     lat:Number = 41.08247;
     lng:Number = 23.5437952;
     zoom:Number = 16;
@@ -25,9 +27,6 @@ export class reportsView implements OnInit {
 
     config: MdDialogConfig = {
         disableClose: false,
-        data: {
-          message: 'Jazzy jazz jazz'
-        }
     };
 
     constructor(public sdk:SDK,public dialog: MdDialog) { }
@@ -60,6 +59,15 @@ export class reportsView implements OnInit {
 
     openDialog() {
         this.dialogRef = this.dialog.open(reportDialog, this.config);
+        this.dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
+            this.dialogRef = null;
+        });
+    }
+
+    openCommentsDialog(reviews) {
+        this.dialogCommentsRef = this.dialog.open(commentsDialog, this.config);
+        this.dialogCommentsRef.componentInstance.reviews = reviews;
         this.dialogRef.afterClosed().subscribe(result => {
             console.log(result);
             this.dialogRef = null;

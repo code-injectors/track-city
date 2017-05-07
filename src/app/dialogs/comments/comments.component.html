@@ -1,11 +1,15 @@
 
-<h1 md-dialog-title>Title</h1>
+<h1 md-dialog-title>Reviews</h1>
 
 <md-dialog-content>
-    Dialog content
+    <md-list>
+        <md-list-item *ngFor="let review of reviews">
+            <!--<md-icon md-list-icon></md-icon md-list-icon>-->
+            {{ review.comment }}
+        </md-list-item>
+    </md-list>
 </md-dialog-content>
 
-<md-dialog-actions class="actions">
+<md-dialog-actions align="end">
     <button md-button md-dialog-close>Close dialog</button>
-    <button md-button>Save</button>
 </md-dialog-actions>

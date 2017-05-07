@@ -36,15 +36,15 @@
                     <md-icon>more_vert</md-icon>
                 </button>
                 <md-menu #appMenu="mdMenu">
-                    <button *ngIf="sdk.status==''" md-menu-item (click)="acceptReport(report.id)">
+                    <button [ngClass]="{'hide':report.status=='PENDING'}" md-menu-item (click)="acceptReport(report.id)">
                         <span>Accept</span>
                     </button>
-                    <button *ngIf="show" md-menu-item (click)="rejectReport(report.id)">
+                    <button [ngClass]="{'hide':report.status=='PENDING'}" md-menu-item (click)="rejectReport(report.id)">
                         <span>Reject</span>
                     </button>
-                    <button md-menu-item>
+                    <button md-menu-item (click)="openCommentsDialog(report.reviews)">
                         <!--<md-icon> notifications_off </md-icon>-->
-                        <span>Comments</span>
+                        <span>Reviews</span>
                     </button>
                     <button md-menu-item>
                         <span>Edit</span>
