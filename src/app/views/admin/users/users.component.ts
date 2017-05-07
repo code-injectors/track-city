@@ -13,9 +13,9 @@ export class usersView implements OnInit {
     query: userFilter;
     dialogRef: MdDialogRef<userDialog>;
 
-    users = [];
-    roles = [];
-    municipalities = [];
+    users:any = [];
+    roles:any = [];
+    municipalities:any = [];
 
     sort = [
         {

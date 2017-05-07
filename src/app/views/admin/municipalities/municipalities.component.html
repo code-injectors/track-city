@@ -6,7 +6,7 @@
 </div>
 
 <md-tab-group>
-    <md-tab (click)="map.triggerResize(true)" label="List">
+    <md-tab (click)="map.triggerResize()" label="List">
 
         <md-list class="list">
             <md-list-item *ngFor="let municipality of municipalities">
@@ -15,7 +15,7 @@
             </md-list-item>
         </md-list>
     </md-tab>
-    <md-tab (click)="map.triggerResize(true)" label="Map" class="map">
+    <md-tab (click)="map.triggerResize()" label="Map" class="map">
         <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
             <sebm-google-map-marker *ngFor="let municipality of municipalities" [latitude]="municipality.latitude" [longitude]="municipality.longitude"></sebm-google-map-marker>
         </sebm-google-map>

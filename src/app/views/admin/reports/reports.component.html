@@ -15,7 +15,7 @@
 </div>
 
 <md-tab-group>
-    <md-tab (click)="map.triggerResize(true)" label="List">
+    <md-tab (click)="map.triggerResize()" label="List">
 
         <md-list class="list">
             <md-list-item *ngFor="let report of reports" [ngClass]="{'new':report.status=='NEW','pending':report.status=='PENDING','standby':report.status=='STANDBY'}">
@@ -32,12 +32,15 @@
                     <md-icon class="md-24 rejected">thumb_down</md-icon>
                     {{ report.downVotes }}
                 </a>
-                <md-menu #menu="mdMenu">
+                <button md-icon-button [mdMenuTriggerFor]="appMenu">
+                    <md-icon>more_vert</md-icon>
+                </button>
+                <md-menu #appMenu="mdMenu">
                     <button md-menu-item (click)="acceptReport(report.id)">
-                        <span>Reject</span>
+                        <span>Accept</span>
                     </button>
                     <button md-menu-item (click)="rejectReport(report.id)">
-                        <span>Accept</span>
+                        <span>Reject</span>
                     </button>
                     <button md-menu-item>
                         <!--<md-icon> notifications_off </md-icon>-->
@@ -50,7 +53,7 @@
             </md-list-item>
         </md-list>
     </md-tab>
-    <md-tab (click)="map.triggerResize(true)" label="Map" class="map">
+    <md-tab (click)="map.triggerResize()" label="Map" class="map">
         <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
             <sebm-google-map-marker *ngFor="let report of reports" [latitude]="report.latitude" [longitude]="report.longitude"></sebm-google-map-marker>
         </sebm-google-map>

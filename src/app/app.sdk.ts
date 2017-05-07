@@ -14,9 +14,9 @@ export class SDK{
     public hideLoading:boolean= true;
     public hideFab:boolean= true;
     public toolbarTitle:string = '';
+    private sdkUrl = 'http://10.42.0.94:8080/';
     //private sdkUrl = 'http://46.101.247.89:8080/';
-    private sdkUrl = 'http://46.101.247.89:8080/';
-    private loginUrl = 'http://46.101.247.89:8080/';
+    private loginUrl = 'http://10.42.0.94:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
 
@@ -130,7 +130,7 @@ export class SDK{
 
     acceptReport(id) : Observable<any> {
 
-         return this.http.post(this.sdkUrl+'reports/'+id+'/change-status/'+'NEW', '', this.options) // ...using post request
+         return this.http.post(this.sdkUrl+'reports/'+id+'/change-status/'+'RESOLVED', '', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
