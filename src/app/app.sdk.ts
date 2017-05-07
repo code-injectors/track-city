@@ -27,6 +27,10 @@ export class SDK{
             this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : token});
             this.options = new RequestOptions({ headers: this.headers });
         }
+        let me = localStorage.getItem('token');
+        if(me){
+            this.me = me;
+        }
     }
 
     showSnackBar(message,action,addClass?){
@@ -83,7 +87,9 @@ export class SDK{
                         localStorage.setItem('token',res.json().token);
                         let $this2 = $this;
                         this.getMe().subscribe(result => {
+                            console.log(result);
                             $this2.me = result;
+                            localStorage.setItem('me',result);
                         });
                         return res.json()
                     }) // ...and calling .json() on the response to return data

@@ -16,11 +16,6 @@ export class adminView implements OnInit {
             icon: ''
         },
         {
-            title: 'Municipalities',
-            url: 'municipalities',
-            icon: ''
-        },
-        {
             title: 'Users',
             url: 'users',
             icon: ''
@@ -28,7 +23,7 @@ export class adminView implements OnInit {
     ]
 
     constructor(public sdk:SDK,public router:Router) {
-        if(this.sdk.me && this.sdk.me.status == 'SUPER_USER'){
+        if(this.sdk.me && this.sdk.me.authorities && this.sdk.me.authorities[0].authority == 'SUPER_USER'){
             this.links.push({
                 title: 'Municipalities',
                 url: 'municipalities',
