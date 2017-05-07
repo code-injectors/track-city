@@ -52,13 +52,13 @@
 }
 
 .pending{
-    border-left: 10px solid rgba(220,90,60,0.4);
+    border-left: 10px solid rgba(250,130,10,0.4);
 }
 .new{
     border-left: 10px solid rgba(60,90,240,0.4);
 }
 .standby{
-    border-left: 10px solid rgba(240,130,10,0.4);
+    border-left: 10px solid rgba(200,90,60,0.4);
 }
 .resolved{
     border-left: 10px solid rgba(40,230,30,0.4);
