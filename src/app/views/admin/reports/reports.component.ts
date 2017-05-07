@@ -68,9 +68,9 @@ export class reportsView implements OnInit {
     openCommentsDialog(reviews) {
         this.dialogCommentsRef = this.dialog.open(commentsDialog, this.config);
         this.dialogCommentsRef.componentInstance.reviews = reviews;
-        this.dialogRef.afterClosed().subscribe(result => {
+        this.dialogCommentsRef.afterClosed().subscribe(result => {
             console.log(result);
-            this.dialogRef = null;
+            this.dialogCommentsRef = null;
         });
     }
     
