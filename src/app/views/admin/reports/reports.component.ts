@@ -149,6 +149,10 @@ export class reportsView implements OnInit {
             console.log(result);
         });
     }
+
+    changeHeight(map){
+        console.log(map);
+    }
 }
 
 interface marker {

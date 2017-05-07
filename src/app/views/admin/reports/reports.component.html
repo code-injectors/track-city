@@ -54,7 +54,7 @@
         </md-list>
     </md-tab>
     <md-tab (click)="map.triggerResize()" label="Map" class="map">
-        <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <sebm-google-map id="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom" autofocus >
             <sebm-google-map-marker *ngFor="let report of reports" [latitude]="report.latitude" [longitude]="report.longitude"></sebm-google-map-marker>
         </sebm-google-map>
     </md-tab>
