@@ -38,3 +38,27 @@
     right: 48px;
     z-index: 1000;
 }
+
+.accepted {
+	color: lightsteelblue;
+}
+
+.rejected {
+	color: lightcoral;
+}
+
+.mat-icon {
+    height: 25px;
+    width: 30px;
+}
+
+.action {
+    margin: 0 10px;
+}
+
+.mat-fab, .mat-mini-fab {
+    background-color: #d50000;
+    color: white;
+}
+
+

@@ -1,6 +1,8 @@
 .toolbar{ 
     position: absolute;
     z-index: 100;
+    background: #3949ab;
+    color: #fff;
 }
 .navcontainer{
     height: 100vh;
