@@ -4,7 +4,7 @@
         <input mdInput [(ngModel)]="query.search.value" (change)="filter()" type="text" placeholder="Search..">
     </md-input-container>
     <md-select [(ngModel)]="query.status.value" (change)="filter()" class="filter" placeholder="Show">
-        <md-option *ngFor="let stat of status" [value]="stat.id">{{ stat.name }}</md-option>
+        <md-option *ngFor="let stat of status" [value]="stat.value">{{ stat.name }}</md-option>
     </md-select>
     <md-select multiple [(ngModel)]="query.category.value" (change)="filter()" class="filter" placeholder="Category">
         <md-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</md-option>

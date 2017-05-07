@@ -33,6 +33,7 @@ export class reportsView implements OnInit {
             {title: 'status', value: ''},
             {title: 'category.id', value: ''},
             {title: 'sort', value: ''});
+        this.sdk.toolbarTitle = 'Reports';
         this.initFilters();
         this.filter();
     }
@@ -48,10 +49,6 @@ export class reportsView implements OnInit {
           lng: $event.coords.lng
         });
         */
-    }
-    
-    markerDragEnd(m: marker, $event: MouseEvent) {
-        console.log('dragEnd', m, $event);
     }
 
     openDialog() {

@@ -53,6 +53,7 @@ export class usersView implements OnInit {
             {title: 'title', value: ''},
             {title: 'role.id', value: ''},
             {title: 'sort', value: ''});
+        this.sdk.toolbarTitle = 'Users';
         this.initFilters();
         this.filter();
     }
