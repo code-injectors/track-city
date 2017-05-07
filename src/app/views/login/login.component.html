@@ -7,16 +7,16 @@
         <!--<img md-card-image src="Card wide image source">-->
         <md-card-content>
             <md-input-container class="input" [floatPlaceholder]="always" dividerColor="primary" align="start">
-                <input mdInput name="componentProperty" [(ngModel)]="componentProperty" type="text" required
+                <input mdInput [(ngModel)]="guest.email" [(ngModel)]="componentProperty" type="text" required
                       placeholder="Email">
             </md-input-container>
             <md-input-container class="input" [floatPlaceholder]="always" dividerColor="primary" align="start">
-                <input mdInput name="componentProperty" [(ngModel)]="componentProperty" type="text" required
+                <input mdInput [(ngModel)]="guest.password" type="text" required
                       placeholder="Password">
             </md-input-container>
         </md-card-content>
         <md-card-actions class="actions" align="end">
-            <button md-raised-button (click)="login('chbakouras@injectors.com','tralala')">Login</button>
+            <button md-raised-button (click)="login()">Login</button>
         </md-card-actions>
         <md-card-footer class="footer">
             version 1.0.0

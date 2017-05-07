@@ -3,8 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, RequestOptions } from '@angular/http';
 
-import { AuthModule } from 'angular2-auth';
-
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
@@ -57,7 +55,6 @@ const appRoutes: Routes = [
         MaterialModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
-        AuthModule.forRoot(),
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyBQcqNcYHtG1ukvDGWPpVoht7SfFSAqWRc'
         })

@@ -22,7 +22,7 @@
         <md-option [value]=""></md-option>
     </md-select>
     <md-select class="elementSelect" placeholder="Role">
-        <md-option [value]=""></md-option>
+        <md-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</md-option>
     </md-select>
 </md-dialog-content>
 

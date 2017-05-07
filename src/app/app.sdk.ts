@@ -13,8 +13,8 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 export class SDK{
     public hideLoading:boolean= true;
     //private sdkUrl = 'http://46.101.247.89:8080/';
-    private sdkUrl = 'http://10.42.0.94:8080/';
-    private loginUrl = 'http://10.42.0.94:8080/';
+    private sdkUrl = 'http://46.101.247.89:8080/';
+    private loginUrl = 'http://46.101.247.89:8080/';
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
 
@@ -110,6 +110,12 @@ export class SDK{
 
     getCategories() : Observable<any> {
          return this.http.get(this.sdkUrl+'categories', this.options) // ...using post request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => this.showError(error)); //...errors if any
+    }
+
+    getRoles() : Observable<any> {
+         return this.http.get(this.sdkUrl+'roles', this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }

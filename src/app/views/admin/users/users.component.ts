@@ -14,6 +14,7 @@ export class usersView implements OnInit {
     dialogRef: MdDialogRef<userDialog>;
 
     users = [];
+    roles = [];
 
     config: MdDialogConfig = {
         disableClose: false,
@@ -27,8 +28,9 @@ export class usersView implements OnInit {
     ngOnInit() {
         this.query = new userFilter(
             {title: 'title', value: ''},
-            {title: 'role.name', value: ''},
+            {title: 'role.id', value: ''},
             {title: 'sort', value: ''});
+        this.initFilters();
         this.filter();
     }
 
@@ -41,24 +43,24 @@ export class usersView implements OnInit {
         }
     ]
 
-    roles: any[] = [ 
-        {
-            title: 'Super User',
-            value: 'SUPER_USER'
-        },
-        {
-            title: 'Admin',
-            value: 'MUNICIPALITY_ADMIN'
-        },
-        {
-            title: 'Employee',
-            value: 'EMPLOYEE'
-        },
-        {
-            title: 'Client',
-            value: 'CLIENT'
-        }
-    ]
+    initFilters(){
+        
+        this.sdk.hideLoading =  false;
+        this.sdk.getRoles().subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
+            this.roles = result.content;
+        });
+        /*
+        console.log(this.query);
+        this.sdk.hideLoading =  false;
+        this.sdk.getStatus().subscribe(result => {
+            this.sdk.hideLoading =  true;
+            console.log(result);
+            this.status = result.content;
+        });
+        */
+    }
 
     filter(){
         
@@ -74,6 +76,7 @@ export class usersView implements OnInit {
 
     editUser(){
         this.dialogRef = this.dialog.open(userDialog, this.config);
+        this.dialogRef.componentInstance.roles = this.roles;
         this.dialogRef.afterClosed().subscribe(result => {
             this.dialogRef = null;
         });

@@ -8,10 +8,11 @@ import { User } from './../../models/user';
 })
 export class userDialog{
     user:User;
+    public roles:any;
+
     constructor() {}
 
     ngOnInit() {
         //this.user = new User(
     }
-
 }
