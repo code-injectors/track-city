@@ -91,6 +91,7 @@ export class usersView implements OnInit {
     editUser(){
         this.dialogRef = this.dialog.open(userDialog, this.config);
         this.dialogRef.componentInstance.roles = this.roles;
+        this.dialogRef.componentInstance.municipalities = this.municipalities;
         this.dialogRef.afterClosed().subscribe(result => {
             this.dialogRef = null;
         });

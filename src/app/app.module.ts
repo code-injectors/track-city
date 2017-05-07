@@ -73,6 +73,9 @@ const appRoutes: Routes = [
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
     entryComponents: [
         userDialog, reportDialog, municipalityDialog
+    ],
+    exports: [
+        RouterModule
     ]
 })
 export class AppModule { }

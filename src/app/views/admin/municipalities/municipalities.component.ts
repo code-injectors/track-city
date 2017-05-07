@@ -20,8 +20,8 @@ export class municipalitiesView implements OnInit {
     lng:Number = 23.5437952;
     zoom:Number = 16;
 
-    categories = [];
-    reports = [];
+    municipalities = [];
+    users = [];
 
     config: MdDialogConfig = {
         disableClose: false,
@@ -34,11 +34,8 @@ export class municipalitiesView implements OnInit {
 
     ngOnInit() {
         this.query = new municipalityFilter(
-            {title: 'title', value: ''},
-            {title: 'status', value: ''},
-            {title: 'category.id', value: ''},
-            {title: 'sort', value: ''});
-        this.sdk.toolbarTitle = 'Reports';
+            {title: 'name', value: ''});
+        this.sdk.toolbarTitle = 'Municipalities';
         this.sdk.hideFab = false;
         this.initFilters();
         this.filter();
@@ -99,20 +96,20 @@ export class municipalitiesView implements OnInit {
         
         console.log(this.query);
         this.sdk.hideLoading =  false;
-        this.sdk.getReports(this.query).subscribe(result => {
+        this.sdk.getMunicipalities(this.query).subscribe(result => {
             this.sdk.hideLoading =  true;
             console.log(result);
-            this.reports = result.content;
+            this.municipalities = result.content;
         });
     }
     initFilters(){
         
         console.log(this.query);
         this.sdk.hideLoading =  false;
-        this.sdk.getCategories().subscribe(result => {
+        this.sdk.getUsers().subscribe(result => {
             this.sdk.hideLoading =  true;
             console.log(result);
-            this.categories = result.content;
+            this.users = result.content;
         });
     }
 }

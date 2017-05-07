@@ -134,8 +134,11 @@ export class SDK{
                          .catch((error:any) => this.showError(error)); //...errors if any
     }
 
-    getMunicipalities() : Observable<any> {
-         return this.http.get(this.sdkUrl+'municipalities', this.options) // ...using post request
+    getMunicipalities(body?: any) : Observable<any> {
+        let bodyString = this.toUrl(body);
+        console.log(bodyString);
+
+        return this.http.get(this.sdkUrl+'municipalities'+bodyString, this.options) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => this.showError(error)); //...errors if any
     }

@@ -3,43 +3,21 @@
    <md-input-container [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
         <input mdInput [(ngModel)]="query.search.value" (change)="filter()" (keyup)="filter()" type="text" placeholder="Search..">
     </md-input-container>
-    <md-select [(ngModel)]="query.status.value" (change)="filter()" class="filter" placeholder="Show">
-        <md-option *ngFor="let stat of status" [value]="stat.value">{{ stat.name }}</md-option>
-    </md-select>
-    <md-select multiple [(ngModel)]="query.category.value" (change)="filter()" class="filter" placeholder="Category">
-        <md-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</md-option>
-    </md-select>
-    <md-select [(ngModel)]="query.sort.value" (change)="filter()" class="filter" placeholder="Sort">
-        <md-option *ngFor="let field of sort" [value]="field.value">{{ field.name }}</md-option>
-    </md-select>
 </div>
 
 <md-tab-group>
     <md-tab (click)="map.triggerResize(true)" label="List">
 
         <md-list class="list">
-            <md-list-item *ngFor="let report of reports">
-                <img md-list-avatar src="" alt="avatar">
-                <h3 md-line>{{ report.title }}</h3>
-                <p md-line>
-                  <span class="category">{{ report.category.name }}</span>
-                </p>
-                <a md-icon>
-                    <md-icon class="md-24 accepted">thumb_up</md-icon>
-                    {{ report.upVotes }}
-                </a>
-                <a md-icon >
-                    <md-icon class="md-24 rejected">thumb_down</md-icon>
-                    {{ report.downVotes }}
-                </a>
-                <a md-raised-button class="action" >Reject</a>
-                <a md-raised-button class="action">Accept</a>
+            <md-list-item *ngFor="let municipality of municipalities">
+                <h3 md-line>{{ municipality.name }}</h3>
+                <a md-raised-button class="action">Edit</a>
             </md-list-item>
         </md-list>
     </md-tab>
     <md-tab (click)="map.triggerResize(true)" label="Map" class="map">
         <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-            <sebm-google-map-marker *ngFor="let report of reports" [latitude]="report.latitude" [longitude]="report.longitude"></sebm-google-map-marker>
+            <sebm-google-map-marker *ngFor="let municipality of municipalities" [latitude]="municipality.latitude" [longitude]="municipality.longitude"></sebm-google-map-marker>
         </sebm-google-map>
     </md-tab>
 </md-tab-group>
