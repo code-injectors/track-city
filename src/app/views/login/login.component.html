@@ -6,17 +6,17 @@
         </md-card-header>
         <!--<img md-card-image src="Card wide image source">-->
         <md-card-content>
-            <md-input-container class="input" [floatPlaceholder]="always" dividerColor="primary" align="start">
-                <input mdInput (keyup.enter)="login()" [(ngModel)]="guest.email" [(ngModel)]="componentProperty" type="text" required
+            <md-input-container class="input" dividerColor="primary" align="start">
+                <input mdInput (keyup.enter)="login()" [(ngModel)]="guest.email" type="text" required
                       placeholder="Email">
             </md-input-container>
-            <md-input-container class="input" [floatPlaceholder]="always" dividerColor="primary" align="start">
+            <md-input-container class="input" dividerColor="primary" align="start">
                 <input mdInput (keyup.enter)="login()" [(ngModel)]="guest.password" type="text" required
                       placeholder="Password">
             </md-input-container>
         </md-card-content>
         <md-card-actions class="actions" align="end">
-            <button md-raised-button (click)="login()">Login</button>
+            <button md-raised-button color="primary" (click)="login()">Login</button>
         </md-card-actions>
         <md-card-footer class="footer">
             beta version 0.1.7
