@@ -5,13 +5,15 @@ import { CanActivate } from '@angular/router';
 import { SDK } from './app.sdk';
 @Injectable()
 export class AuthGuard implements CanActivate {
-
-    constructor(public sdk:SDK, private router: Router) {}
+    private token;
+    constructor(public sdk:SDK, private router: Router) {
+        this.token = localStorage.getItem('token');
+    }
 
     canActivate() {
         // If the user is not logged in we'll send them back to the home page
         console.log(this.sdk.loggedIn());
-        if (!this.sdk.loggedIn()) {
+        if (!this.sdk.loggedIn() && !this.token) {
             this.router.navigate(['']);
             return false;
         }

@@ -18,7 +18,13 @@ export class SDK{
     private headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     private options = new RequestOptions({ headers: this.headers }); // Create a request option
 
-    constructor (private http: Http,public snackBar: MdSnackBar) {}
+    constructor (private http: Http,public snackBar: MdSnackBar) {
+        let token = localStorage.getItem('token');
+        if(token){
+            this.headers = new Headers({ 'Content-Type': 'application/json','Authorization' : token});
+            this.options = new RequestOptions({ headers: this.headers });
+        }
+    }
 
     showSnackBar(message,action,addClass?){
         console.log(message);
