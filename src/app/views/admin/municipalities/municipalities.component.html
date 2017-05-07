@@ -11,7 +11,7 @@
         <md-list class="list">
             <md-list-item *ngFor="let municipality of municipalities">
                 <h3 md-line>{{ municipality.name }}</h3>
-                <a md-raised-button class="action">Edit</a>
+                <a md-raised-button (click)="openDialog()" class="action">Edit</a>
             </md-list-item>
         </md-list>
     </md-tab>

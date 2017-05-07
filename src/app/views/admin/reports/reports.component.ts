@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { reportDialog } from './../../../dialogs/report/report.component';
-import { SDK } from './../../../app.sdk';
 import { reportFilter } from './../../../models/reportFilter';
 
 import { SebmGoogleMap } from 'angular2-google-maps/core';
+import { SDK } from './../../../app.sdk';
 
 @Component({
   selector: 'app-reports',
@@ -61,6 +61,7 @@ export class reportsView implements OnInit {
     openDialog() {
         this.dialogRef = this.dialog.open(reportDialog, this.config);
         this.dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
             this.dialogRef = null;
         });
     }

@@ -24,10 +24,7 @@ export class municipalitiesView implements OnInit {
     users = [];
 
     config: MdDialogConfig = {
-        disableClose: false,
-        data: {
-          message: 'Jazzy jazz jazz'
-        }
+        disableClose: false
     };
 
     constructor(public sdk:SDK,public dialog: MdDialog) { }
@@ -58,6 +55,7 @@ export class municipalitiesView implements OnInit {
     openDialog() {
         this.dialogRef = this.dialog.open(municipalityDialog, this.config);
         this.dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
             this.dialogRef = null;
         });
     }
@@ -106,7 +104,7 @@ export class municipalitiesView implements OnInit {
         
         console.log(this.query);
         this.sdk.hideLoading =  false;
-        this.sdk.getUsers().subscribe(result => {
+        this.sdk.getUsers({}).subscribe(result => {
             this.sdk.hideLoading =  true;
             console.log(result);
             this.users = result.content;

@@ -70,7 +70,7 @@ export class usersView implements OnInit {
             this.roles = result.content;
         });
 
-        this.sdk.getMunicipalities().subscribe(result => {
+        this.sdk.getMunicipalities({}).subscribe(result => {
             this.sdk.hideLoading =  true;
             console.log(result);
             this.municipalities = result.content;
