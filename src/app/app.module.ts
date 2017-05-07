@@ -6,6 +6,7 @@ import { Http, RequestOptions } from '@angular/http';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { SebmGoogleMap } from 'angular2-google-maps/core';
 
 import { MaterialModule } from '@angular/material'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     ],
     providers: [
         SDK,
-        AuthGuard
+        AuthGuard,
+        SebmGoogleMap
     ],
     bootstrap: [AppComponent],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],

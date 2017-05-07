@@ -12,6 +12,7 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 @Injectable()
 export class SDK{
     public hideLoading:boolean= true;
+    public hideFab:boolean= true;
     public toolbarTitle:string = '';
     //private sdkUrl = 'http://46.101.247.89:8080/';
     private sdkUrl = 'http://46.101.247.89:8080/';

@@ -1,7 +1,7 @@
 
 <div class="filters">
    <md-input-container [floatPlaceholder]="auto" class="search" dividerColor="primary" align="start">
-        <input mdInput [(ngModel)]="query.search.value" (change)="filter()" type="text" placeholder="Search..">
+        <input mdInput [(ngModel)]="query.search.value" (change)="filter()" (keyup)="filter()" type="text" placeholder="Search..">
     </md-input-container>
     <md-select [(ngModel)]="query.status.value" (change)="filter()" class="filter" placeholder="Show">
         <md-option *ngFor="let stat of status" [value]="stat.value">{{ stat.name }}</md-option>
@@ -15,7 +15,7 @@
 </div>
 
 <md-tab-group>
-    <md-tab label="List">
+    <md-tab (click)="map.triggerResize(true)" label="List">
 
         <md-list class="list">
             <md-list-item *ngFor="let report of reports">
@@ -37,11 +37,9 @@
             </md-list-item>
         </md-list>
     </md-tab>
-    <md-tab label="Map" class="map">
+    <md-tab (click)="map.triggerResize(true)" label="Map" class="map">
         <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
             <sebm-google-map-marker *ngFor="let report of reports" [latitude]="report.latitude" [longitude]="report.longitude"></sebm-google-map-marker>
         </sebm-google-map>
     </md-tab>
 </md-tab-group>
-
-<button class="fab" md-fab (click)="openDialog()"><md-icon>add</md-icon></button>

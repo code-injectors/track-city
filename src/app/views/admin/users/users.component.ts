@@ -40,20 +40,18 @@ export class usersView implements OnInit {
     ]
 
     config: MdDialogConfig = {
-        disableClose: false,
-        data: {
-            message: 'Jazzy jazz jazz'
-        }
+        disableClose: false
     };
 
     constructor(public sdk:SDK,public dialog: MdDialog) { }
 
     ngOnInit() {
         this.query = new userFilter(
-            {title: 'title', value: ''},
+            {title: 'firstName', value: ''},
             {title: 'role.id', value: ''},
             {title: 'sort', value: ''});
         this.sdk.toolbarTitle = 'Users';
+        this.sdk.hideFab = false;
         this.initFilters();
         this.filter();
     }

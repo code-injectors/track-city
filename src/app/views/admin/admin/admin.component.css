@@ -3,6 +3,10 @@
     z-index: 100;
     background: #3949ab;
     color: #fff;
+    font-weight: normal;
+}
+.toolbar i{
+    margin-right: 24px;
 }
 .navcontainer{
     height: 100vh;

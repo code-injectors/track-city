@@ -21,3 +21,5 @@
         <router-outlet name="admin"></router-outlet>
     </div>
 </md-sidenav-container>
+
+<a [ngClass]="{'hide':sdk.hideFab}" class="fab" md-fab (click)="openDialog()"><md-icon>add</md-icon></a>

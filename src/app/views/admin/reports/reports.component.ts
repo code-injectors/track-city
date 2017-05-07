@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { reportDialog } from './../../../dialogs/report/report.component';
 import { SDK } from './../../../app.sdk';
 import { reportFilter } from './../../../models/reportFilter';
+
+import { SebmGoogleMap } from 'angular2-google-maps/core';
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
+  entryComponents: [SebmGoogleMap],
   styleUrls: ['./reports.component.css']
 })
 export class reportsView implements OnInit {
+    @ViewChild(SebmGoogleMap) map: SebmGoogleMap
     query: reportFilter;
     dialogRef: MdDialogRef<reportDialog>;
     lat:Number = 41.08247;
@@ -34,8 +39,10 @@ export class reportsView implements OnInit {
             {title: 'category.id', value: ''},
             {title: 'sort', value: ''});
         this.sdk.toolbarTitle = 'Reports';
+        this.sdk.hideFab = false;
         this.initFilters();
         this.filter();
+        this.map.triggerResize();
     }
 
     clickedMarker(label: string, index: number) {
